@@ -1,7 +1,5 @@
 1. Difference between var,let,const.
-
-
-
+2.
 Techsith : https://www.youtube.com/watch?v=oxoFVqetl1E&list=PL7pEw9n3GkoWn5TcqAdmSzXcvC3d_tfAh
 Kud venkat JS 57. public, private functions variables.
 Namespaces:  https://javascriptweblog.wordpress.com/2010/12/07/namespacing-in-javascript/
