@@ -1,0 +1,14 @@
+node -v
+npm -v
+ng --version
+tsc <filename.ts>
+
+npm i -g @angular/cli
+ng new Ang
+
+
+ng serve
+ng build
+ 
+http://localhost:4200/
+ctrl+C; will close the terminal

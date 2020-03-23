@@ -1,6 +1,10 @@
 1. Difference between var,let,const.
-2.
+2.<noscript></noscript> this would be executed when javascript is disabled.
+tsc <filename> transpiling converting ts file to js file. 
+node <filename.js> runs the js file at the server.
+
+
 Techsith : https://www.youtube.com/watch?v=oxoFVqetl1E&list=PL7pEw9n3GkoWn5TcqAdmSzXcvC3d_tfAh
 Kud venkat JS 57. public, private functions variables.
 Namespaces:  https://javascriptweblog.wordpress.com/2010/12/07/namespacing-in-javascript/
-Object accesors:  https://www.w3schools.com/js/js_object_accessors.asp
+Object accesors:  https://www.w3schools.com/js/js_object_accessors.asp 
