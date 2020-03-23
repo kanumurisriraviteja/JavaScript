@@ -12,3 +12,5 @@ ng build
  
 http://localhost:4200/
 ctrl+C; will close the terminal
+ng generate component component-name >>>>> to generate a new component.
+ You can also use ng generate directive|pipe|service|class|guard|interface|enum|module.

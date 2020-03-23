@@ -1,0 +1,37 @@
+A class if it has a @Component it becomes a component, but where as if it has @NgModule it becomes a module.
+
+Component : class, selector, template 
+-----------------------------------------------------------------------
+import { Component } from "@angular/core";
+
+// this is a selector
+@Component({
+  selector: 'app-first',
+  templateUrl: './first.component.html',// template
+  styleUrls: ['./first.component.css']
+})
+// this is a class
+export class FirstComponent{
+    name :string ='test';
+}
+
+Module:
+---------------------------------------------------------------------------
+
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser'; //needs to run angular in all browsers
+@NgModule({
+  declarations: [
+    AppComponent,
+    FirstComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+

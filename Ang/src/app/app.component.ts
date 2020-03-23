@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Ang';
+  title:string = 'JavaScript Angular';
+  srcPath:string='../assets/1.jpg';
 }

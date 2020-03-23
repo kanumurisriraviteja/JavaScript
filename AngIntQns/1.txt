@@ -1,0 +1,6 @@
+Interpolation>  from class to template(html) {{}}
+property binding <img [src]=''/> or bind-disabled=''
+attribute binding [attr-colspan]='' or attr.colspan="{{}}"
+
+concatinate strings use Interpolation over property binding. property binding like button disabled use property binding.
+angular bindings work with properties and events but not with attributes(key and value pairs).
