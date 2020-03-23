@@ -2,7 +2,7 @@ A class if it has a @Component it becomes a component, but where as if it has @N
 
 Component : class, selector, template 
 -----------------------------------------------------------------------
-import { Component } from "@angular/core";
+import { Component,Input,Output,EventEmitter } from "@angular/core";
 
 // this is a selector
 @Component({
@@ -13,6 +13,9 @@ import { Component } from "@angular/core";
 // this is a class
 export class FirstComponent{
     name :string ='test';
+
+    @Input() // this is used to pass the data from parent to the child component
+    parentToChild : number;
 }
 
 Module:

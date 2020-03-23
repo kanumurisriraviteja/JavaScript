@@ -1,6 +1,29 @@
+// passes data from class to the html.
+
 Interpolation>  from class to template(html) {{}}
 property binding <img [src]=''/> or bind-disabled=''
 attribute binding [attr-colspan]='' or attr.colspan="{{}}"
 
+using property binding we can achieve only one property.
+[ngClass]> this add multiple class bindings. css properties
+[ngStyle]> can write a method to apply multiple styles. like : fontWeight
+
+
+// Here passes data from html to the class
+Event binding: 
+(click)=''
+
+//Two way data binding
+[(ngModel)]
+
 concatinate strings use Interpolation over property binding. property binding like button disabled use property binding.
 angular bindings work with properties and events but not with attributes(key and value pairs).
+
+@Input @output 
+
+constructor,ngOnChanges,ngOnInit,ngDestroy;
+Life Cycle hooks : 
+ngOnChanges,Executes every time when the @Input changes.receives a SimpleChanges which contains previous and current change
+ngOnInit,
+--ngDOCheck,ngAfterContentInit,ngAfterContentChecked,ngAfterViewInit,ngAfterViewChecked--
+ngDestroy

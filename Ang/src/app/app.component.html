@@ -1,11 +1,38 @@
-<div class="toolbar" role="banner">
-
+<div>
   <span>Welcome {{title}}</span>
   <br/>
-  <img  src="{{srcPath}}" width="100" height="100">
+
+  <img  src="{{srcPath}}" width="100" height="100"><br/><br/>
+
+  <!-- here value is attribute binding which flows data from class to html 
+    and input is event binding which flows the data from html to the class-->
+  First Name : <input type="text" [value]='firstname' (input)= 'firstname=$event.target.value'/><br/>
+  Second Name : <input type="text" [(ngModel)]='lastname'/><br/>
+  You Have Entered : First Name : {{firstname}} Second Name :{{lastname}} <br/>{{fullname}}
+  <br/><br/>
+
+  <table>
+    <!-- Cant place multiple directives together-->
+    <ng-container *ngFor="let e of count;let i=index"> 
+    <tr *ngIf='i%2==0'>
+      <!-- here vowelpipe is the custom pipe and parameters are passed using :i:j -->
+      <td *ngIf='BooleanCondForIF(e)'> {{e | uppercase | vowelpipe:i}}</td>
+    </tr>
+  </ng-container>
+  </table>
+  <button (click)=btnClick()>App Component Button</button>
+   <div>
+     Data  Received from the child to the parent is {{receivedFromChild | json }}
+   </div>
+   
+   -----------------------------------------------------------------------------------------------------------------------  
     <div>
-      <app-first> </app-first>
+      <!-- Here [parentToChild] is the @Input Component present in the child component-->
+      <!-- Here (childToParent) is the @Output component,
+         this is in the child component and will send update to the parent-->
+         <!--[parentToChild] is from parent to the child via the @Input parameter
+            (childToParent)  is from child to the parent which emits the data in the child and parent catches it-->
+      <app-first [parentToChild]= "firstname" (childToParent)="GetOutputFromChild($event)"> </app-first>
     </div>
 </div>
-
  <!-- <router-outlet></router-outlet> -->

@@ -5,7 +5,7 @@ tsc <filename.ts>
 
 npm i -g @angular/cli
 ng new Ang
-
+npm install >> this restores all the packages.
 
 ng serve
 ng build
