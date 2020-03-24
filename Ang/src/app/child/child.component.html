@@ -1,0 +1,29 @@
+<p>-----------------------------------------------------------------------------------</p>
+This is the data passed from parent to the child : {{parentToChild}}
+<br/>
+<button (click)=btnClick()>CHILD component Button</button><br/><br/>
+<button (click)=CarsWebApi()>CHILD Cars WebApi</button> <br/><br/>
+
+Status message: {{message}}<br/><br/>
+<div *ngIf='messageStatus'> 
+Cars web api output of btnclick {{carsWebApi|json}}
+</div>
+
+<table>
+    <thead>
+    <th>Model</th>
+    <th>Type</th>
+    <th>Color</th>
+</thead>
+
+<tbody>
+    <tr *ngIf='!messageStatus' aria-colspan="3">No DATA</tr>
+    <ng-container *ngIf='messageStatus'>
+    <tr *ngFor="let e of carsWebApi">
+        <td>{{e.Model}}</td>
+        <td>{{e.Type}}</td>
+        <td>{{e.Color}}</td>
+    </tr>
+</ng-container>
+</tbody>
+</table>

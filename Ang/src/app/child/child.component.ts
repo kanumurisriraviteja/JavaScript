@@ -4,12 +4,23 @@ import {CarsService} from '../Services/cars.service';
 import {CarsWebapiService} from '../Services/cars-webapi.service'
 
 @Component({
-  selector: 'app-first',
-  templateUrl: './first.component.html',
-  styleUrls: ['./first.component.css'],
+  selector: 'app-child',
+  templateUrl: './child.component.html',
+  styleUrls: ['./child.component.css'],
   providers :[CarsService,CarsWebapiService]
 })
-export class FirstComponent implements OnChanges, OnInit {
+export class ChildComponent implements OnInit {
+
+  constructor(private _cars: CarsService, private _carsWebapi : CarsWebapiService) { 
+    console.log('constructor in the child component');
+    console.log(this.parentToChild);// undefined
+  }
+
+  ngOnInit(): void 
+  {
+    this.car = this._cars.GetCars();
+    console.log('OnInit in the child component');
+  }
 
   @Input()
   parentToChild : number;
@@ -23,16 +34,7 @@ export class FirstComponent implements OnChanges, OnInit {
   messageStatus : boolean;
   message: string;
 
-  constructor(private _cars: CarsService, private _carsWebapi : CarsWebapiService) { 
-    console.log('constructor in the child component');
-    console.log(this.parentToChild);// undefined
-  }
-
-  ngOnInit(): void 
-  {
-    this.car = this._cars.GetCars();
-    console.log('OnInit in the child component');
-  }
+  
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log('OnChanges in the child component');
@@ -55,15 +57,20 @@ export class FirstComponent implements OnChanges, OnInit {
   CarsWebApi() : Icar[]
   { 
     this.message='Data is Loading..';
-    this.messageStatus = true;
+    
     this._carsWebapi.GetCarsWebApi().subscribe(data=> this.carsWebApi=data,
       (error)=>
       { 
         this.messageStatus =false ;
         this.message=error;
+      },
+      ()=>
+      {
+        this.messageStatus = true;
+        if(this.messageStatus)
+        this.message='loaded successfully';
       }
       );
-      this.message='loaded successfully';
     return this.carsWebApi;
   }
 }

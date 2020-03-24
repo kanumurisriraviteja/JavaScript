@@ -7,6 +7,7 @@ import {catchError} from 'rxjs/operators'
 @Injectable({
   providedIn: 'root'
 })
+
 export class GenericHttpService {
 
   constructor(private _http : HttpClient) { }
@@ -26,5 +27,4 @@ export class GenericHttpService {
     }
      return throwError('error in returning from the service,please contact admin');
   }
-
 }
