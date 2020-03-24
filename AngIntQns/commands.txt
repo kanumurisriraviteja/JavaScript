@@ -13,6 +13,8 @@ ng serve
 ng build
 ng test 
 ng e2e // runs the end to end tests.
+ng lint
+ng lint --fix
  
 http://localhost:4200/
 ctrl+C; will close the terminal
@@ -24,8 +26,19 @@ ng generate component component-name >>>>> to generate a new component.
 
  Karma Unit test,Protractor EndtoEnd  spec.ts is for unit testing.
 
+https://angular.io/cli/generate
+// if we have mutltiple modules we will get error
  ng g c <componentName> -d -it -is --spec=false -- style=css
- ng g s <serviceName>  -m = app.module
- ng g m <moduleName>   -m = app.module
+ ng g d <directivename> -m =app.module 
+ ng g p <pipname>
 
- https://angular.io/cli/generate
+ ng g m <moduleName>   -m = app.module
+ 
+//multipe modules also no error 
+ ng g g <guardname>
+ ng g s <serviceName>  -m = app.module // not registered in the module
+ -------------------------------------------------------------------------------
+ ng g cl <classname>
+ ng g i <interfacename>
+ ng g e <enumname>
+ 
