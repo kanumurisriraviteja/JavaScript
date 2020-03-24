@@ -9,9 +9,9 @@ import {CarsWebapiService} from '../Services/cars-webapi.service';
   styleUrls: ['./child.component.css'],
   providers : [CarsService, CarsWebapiService]
 })
-export class ChildComponent implements OnInit {
+export class ChildComponent implements OnInit, OnChanges {
 
-  constructor(private _cars: CarsService, private _carsWebapi: CarsWebapiService) {
+  constructor(private cars: CarsService, private carsWebapi: CarsWebapiService) {
     console.log('constructor in the child component');
     console.log(this.parentToChild); // undefined
   }
@@ -29,7 +29,7 @@ export class ChildComponent implements OnInit {
   message: string;
 
   ngOnInit(): void {
-    this.car = this._cars.GetCars();
+    this.car = this.cars.GetCars();
     console.log('OnInit in the child component');
   }
 
@@ -55,7 +55,7 @@ export class ChildComponent implements OnInit {
   CarsWebApi(): Icar[] {
     this.message = 'Data is Loading..';
 
-    this._carsWebapi.GetCarsWebApi().subscribe(data => this.carsWebApi = data,
+    this.carsWebapi.GetCarsWebApi().subscribe(data => this.carsWebApi = data,
       (error) => {
         this.messageStatus = false ;
         this.message = error;

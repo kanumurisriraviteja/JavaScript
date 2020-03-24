@@ -10,10 +10,10 @@ import {catchError} from 'rxjs/operators';
 
 export class GenericHttpService {
 
-  constructor(private _http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
    public HttpGetService(url: string): Observable<any> {
-      return this._http.get<any>(url).pipe(catchError(this.errorHandler));
+      return this.http.get<any>(url).pipe(catchError(this.errorHandler));
    }
 
   private errorHandler(errorHandler: HttpErrorResponse) {

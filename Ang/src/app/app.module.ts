@@ -5,7 +5,7 @@ import {HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {cpPipe} from './Custom/cp.pipe';
+import {CustPipe} from './Custom/cp.pipe';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
 import {PageNotFoundComponent} from './Others/pagenotfound.component';
@@ -15,7 +15,7 @@ import {HomeComponent} from './Others/home.component';
 @NgModule({
   declarations: [
     AppComponent,
-    cpPipe,
+    CustPipe,
     ParentComponent,
     ChildComponent,
     HomeComponent,

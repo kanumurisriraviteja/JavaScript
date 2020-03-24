@@ -37,7 +37,7 @@ export class ParentComponent implements OnInit {
   }
 
   BooleanCondForIF(input: string): boolean {
-    return input.length % 2 == 0 || input.length % 3 == 0;
+    return input.length % 2 === 0 || input.length % 3 === 0;
   }
 
 }

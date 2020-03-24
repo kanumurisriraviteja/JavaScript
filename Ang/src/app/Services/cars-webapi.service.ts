@@ -7,7 +7,7 @@ import {GenericHttpService} from './generic-http.service';
 @Injectable()
 export class CarsWebapiService {
 
-  constructor(private _genericHttp: GenericHttpService) { }
+  constructor(private genericHttp: GenericHttpService) { }
 
   GetCarsWebApi(): Observable<Icar[]> {
         // return [
@@ -20,6 +20,6 @@ export class CarsWebapiService {
         // this is error and locks to the console.
         // return this._genericHttp.HttpGetService("https://localhost:44330/api/Values/GetCar1");
 
-        return this._genericHttp.HttpGetService('https://localhost:44330/api/Values/GetCar');
+        return this.genericHttp.HttpGetService('https://localhost:44330/api/Values/GetCar');
     }
 }
