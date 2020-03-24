@@ -27,3 +27,8 @@ ngOnChanges,Executes every time when the @Input changes.receives a SimpleChanges
 ngOnInit,
 --ngDOCheck,ngAfterContentInit,ngAfterContentChecked,ngAfterViewInit,ngAfterViewChecked--
 ngDestroy
+
+
+Bundling : as there will be on the restrictions on the no of js file loaded, small js are combied to form a lager one.
+Minfication : short hands, spaces.
+TreeShaking : removing code which are not using in the application.

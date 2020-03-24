@@ -9,12 +9,15 @@ ng new Ang --d // dry run
 npm install >> this restores all the packages.
 npm install bootstrap jquery
 
-ng serve
-ng build
+ng serve --watch=false --live-reload=false --port=4201 --open 
+ng build --dev ;(produces source maps,Just In Time(JIT))   ng build --prod (ahead of time (aot))// this is bin folder.
 ng test 
 ng e2e // runs the end to end tests.
 ng lint
 ng lint --fix
+
+inetmgr
+prod build : ng build --prod
  
 http://localhost:4200/
 ctrl+C; will close the terminal
