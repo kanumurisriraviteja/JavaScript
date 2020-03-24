@@ -5,12 +5,26 @@ tsc <filename.ts>
 
 npm i -g @angular/cli
 ng new Ang
+ng new Ang --d // dry run
 npm install >> this restores all the packages.
 
 ng serve
 ng build
+ng test 
+ng e2e // runs the end to end tests.
  
 http://localhost:4200/
 ctrl+C; will close the terminal
 ng generate component component-name >>>>> to generate a new component.
  You can also use ng generate directive|pipe|service|class|guard|interface|enum|module.
+
+ important files: angular.json,packages.json,tsconfig.json
+ Root component : AppComponent,AppModule,main.ts,index.html,
+
+ Karma Unit test,Protractor EndtoEnd  spec.ts is for unit testing.
+
+ ng g c <componentName> -d -it -is --spec=false -- style=css
+ ng g s <serviceName>  -m = app.module
+ ng g m <moduleName>   -m = app.module
+
+ https://angular.io/cli/generate

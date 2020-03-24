@@ -1,10 +1,13 @@
 import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges,OnChanges } from '@angular/core';
 import { Icar } from './ICar';
+import {CarsService} from '../Services/cars.service';
+import {CarsWebapiService} from '../Services/cars-webapi.service'
 
 @Component({
   selector: 'app-first',
   templateUrl: './first.component.html',
-  styleUrls: ['./first.component.css']
+  styleUrls: ['./first.component.css'],
+  providers :[CarsService,CarsWebapiService]
 })
 export class FirstComponent implements OnChanges, OnInit {
 
@@ -14,15 +17,17 @@ export class FirstComponent implements OnChanges, OnInit {
   @Output()
   childToParent = new EventEmitter<any>();
   // Inteface:  typo no run time errors.
-  car : Icar = { type:"Fiat", model:500, color:"white" };
+  car : Icar[] = [];
+  carsWebApi : Icar[] =[];
 
-  constructor() { 
+  constructor(private _cars: CarsService, private _carsWebapi : CarsWebapiService) { 
     console.log('constructor in the child component');
     console.log(this.parentToChild);// undefined
   }
 
   ngOnInit(): void 
   {
+    this.car = this._cars.GetCars();
     console.log('OnInit in the child component');
   }
 
@@ -44,4 +49,8 @@ export class FirstComponent implements OnChanges, OnInit {
     this.childToParent.emit(this.car);
   }
 
+  CarsWebApi() : Icar[]{ 
+    this._carsWebapi.GetCarsWebApi().subscribe(data=> this.carsWebApi=data);
+    return this.carsWebApi;
+  }
 }

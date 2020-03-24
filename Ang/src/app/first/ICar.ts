@@ -1,6 +1,6 @@
 export interface Icar{
-    type : string;
-    model : number;
-    color : string;
-    manufactued?: number;
+    Type : string;
+    Model : number;
+    Color : string;
+    Manufactued?: number;
 }

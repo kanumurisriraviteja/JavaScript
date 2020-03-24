@@ -9,7 +9,7 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
     console.log('OnInit in APPComponent');
   }
-  title:string = 'JavaScript Angular';
+  title:string = 'Ang';
   srcPath:string='../assets/1.jpg';
   firstname :string ='teja';
   lastname :string='';
