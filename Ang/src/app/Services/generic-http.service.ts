@@ -24,7 +24,7 @@ export class GenericHttpService {
     else{
       console.error('SERVER side error'+ JSON.stringify(errorHandler));
     }
-     return throwError('error in returning from the service');
+     return throwError('error in returning from the service,please contact admin');
   }
 
 }

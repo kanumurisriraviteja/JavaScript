@@ -7,6 +7,7 @@ npm i -g @angular/cli
 ng new Ang
 ng new Ang --d // dry run
 npm install >> this restores all the packages.
+npm install bootstrap jquery
 
 ng serve
 ng build
