@@ -20,6 +20,9 @@ export class FirstComponent implements OnChanges, OnInit {
   car : Icar[] = [];
   carsWebApi : Icar[] =[];
 
+  messageStatus : boolean;
+  message: string;
+
   constructor(private _cars: CarsService, private _carsWebapi : CarsWebapiService) { 
     console.log('constructor in the child component');
     console.log(this.parentToChild);// undefined
@@ -49,8 +52,18 @@ export class FirstComponent implements OnChanges, OnInit {
     this.childToParent.emit(this.car);
   }
 
-  CarsWebApi() : Icar[]{ 
-    this._carsWebapi.GetCarsWebApi().subscribe(data=> this.carsWebApi=data);
+  CarsWebApi() : Icar[]
+  { 
+    this.message='Data is Loading..';
+    this.messageStatus = true;
+    this._carsWebapi.GetCarsWebApi().subscribe(data=> this.carsWebApi=data,
+      (error)=>
+      { 
+        this.messageStatus =false ;
+        this.message=error;
+      }
+      );
+      this.message='loaded successfully';
     return this.carsWebApi;
   }
 }

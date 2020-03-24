@@ -1,16 +1,13 @@
 import { Injectable } from '@angular/core';
 import {Icar} from "../first/ICar";
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {GenericHttpService} from './generic-http.service';
 
-// @Injectable({
-//   providedIn: 'root'
-// })
 
 @Injectable()
 export class CarsWebapiService {
 
-  constructor(private _http : HttpClient) { }
+  constructor(private _genericHttp : GenericHttpService) { }
 
   GetCarsWebApi() : Observable<Icar[]> 
     {
@@ -20,8 +17,9 @@ export class CarsWebapiService {
         // { Type:"bmw", Model:3, Color:"green" },
         // { Type:"audi", Model:4, Color:"red" }
         //       ];
-
-        return this._http.get<Icar[]>("https://localhost:44330/api/Values/GetCar");
+        // this is error and locks to the console.
+        // return this._genericHttp.HttpGetService("https://localhost:44330/api/Values/GetCar1");
+        return this._genericHttp.HttpGetService("https://localhost:44330/api/Values/GetCar");
     }
 
 }
