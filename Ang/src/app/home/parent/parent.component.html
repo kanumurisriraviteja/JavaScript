@@ -32,6 +32,6 @@
            this is in the child component and will send update to the parent-->
            <!--[parentToChild] is from parent to the child via the @Input parameter
               (childToParent)  is from child to the parent which emits the data in the child and parent catches it-->
-        <app-childhome [parentToChild]= "firstname" (childToParent)="GetOutputFromChild($event)"> </app-childhome>
+        <app-child [parentToChild]= "firstname" (childToParent)="GetOutputFromChild($event)"> </app-child>
       </div>
   </div>

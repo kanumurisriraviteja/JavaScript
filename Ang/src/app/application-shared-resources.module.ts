@@ -9,6 +9,6 @@ import {CustPipe} from './Custom/cp.pipe';
   imports: [
     CommonModule
   ],
-  exports:[CustPipe]
+  exports: [CustPipe]
 })
 export class ApplicationSharedResourcesModule { }

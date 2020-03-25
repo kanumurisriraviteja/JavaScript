@@ -31,7 +31,7 @@ import {HomeComponent} from './Others/home.component';
     HomeModule,
     ApplicationSharedResourcesModule
   ],
-  exports:[],
+  exports: [],
   providers: [],
   bootstrap: [AppComponent]
 })

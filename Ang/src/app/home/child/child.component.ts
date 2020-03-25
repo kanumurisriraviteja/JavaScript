@@ -4,7 +4,7 @@ import {CarsService} from '../../Services/cars.service';
 import {CarsWebapiService} from '../../Services/cars-webapi.service';
 
 @Component({
-  selector: 'app-childhome',
+  selector: 'app-child',
   templateUrl: './child.component.html',
   styleUrls: ['./child.component.css'],
   providers : [CarsService, CarsWebapiService]
