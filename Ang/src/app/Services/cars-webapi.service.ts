@@ -32,4 +32,8 @@ export class CarsWebapiService {
     DeleteCarWebApi(car : Icar) : Observable<Icar[]> {
       return this.genericHttp.HttpDeleteService('Values/DeleteCar', car.Model);
     }
+
+    GetCarsWebApiPromise() : Promise<any>{
+      return this.genericHttp.HttpGetServicePromise('Values/GetCar');
+    }
 }

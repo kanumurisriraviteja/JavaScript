@@ -33,7 +33,7 @@ https://angular.io/cli/generate
 // if we have mutltiple modules we will get error
  ng g c <componentName> -d -it -is --spec=false -- style=css
  ng g d <directivename> -m =app.module 
- ng g p <pipname>
+ ng g p <pipename>
 
  ng g m <moduleName>   -m = app.module
  

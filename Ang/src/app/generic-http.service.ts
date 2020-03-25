@@ -47,4 +47,9 @@ export class GenericHttpService {
     }
     return throwError('error in returning from the service,please contact admin');
   }
+  
+  public HttpGetServicePromise(url: string): Promise<any> {
+    return this.http.get<any>(`${this.baseurl}${url}`).pipe(catchError(()=>{return throwError('error in returning from the service,please contact admin');}))
+              .toPromise();
+ }
 }

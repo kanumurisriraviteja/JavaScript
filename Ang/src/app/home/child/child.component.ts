@@ -2,6 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges, OnChange
 import { Icar } from './ICar';
 import {CarsService} from '../../Services/cars.service';
 import {CarsWebapiService} from '../../Services/cars-webapi.service';
+import {Router} from '@angular/router';
+import {retry} from 'rxjs/operators';
 
 @Component({
   selector: 'app-child',
@@ -12,7 +14,7 @@ import {CarsWebapiService} from '../../Services/cars-webapi.service';
 export class ChildComponent implements OnInit, OnChanges {
 
   // private carsserviceStatic : CarsService;
-  constructor(private cars: CarsService, private carsWebapi: CarsWebapiService) {
+  constructor(private cars: CarsService, private carsWebapi: CarsWebapiService,private navigateroute : Router ) {
     // this.carsserviceStatic = new CarsService();//creating using new instead of DI.
     console.log('constructor in the child component');
     console.log(this.parentToChild); // undefined
@@ -55,9 +57,10 @@ export class ChildComponent implements OnInit, OnChanges {
     this.childToParent.emit(this.carstatic);
   }
 
-  CarsWebApi(): Icar[] {
+  CarsWebApi() : void { 
     this.message = 'Data is Loading..';
 
+    // This is an Observable
     this.carsWebapi.GetCarsWebApi().subscribe(data => this.carsWebApi = data,
       (error) => {
         this.messageStatus = false ;
@@ -68,12 +71,23 @@ export class ChildComponent implements OnInit, OnChanges {
         if (this.messageStatus) {
         this.message = 'loaded successfully';
         }
-      }
-      );
-    return this.carsWebApi;
+      }).add(retry(10));
+    // This is a Promise.
+    
+    //  this.carsWebapi.GetCarsWebApiPromise().then( (data) => {
+    //      this.carsWebApi = data
+    //       this.messageStatus = true;
+    //       if (this.messageStatus) {
+    //       this.message = 'loaded successfully';
+    //       }
+    //     })
+    //     .catch((error) => {
+    //       this.messageStatus = false ;
+    //       this.message = error;
+    //     });  
   }
 
-  InsertCarsWebApi(): Icar[] {
+  InsertCarsWebApi() {
     this.message = 'Inserting Car';
     let newCar : Icar= { Type:"ford", Model:5, Color:"white" };
        
@@ -89,10 +103,9 @@ export class ChildComponent implements OnInit, OnChanges {
         }
       }
       );
-    return this.carsWebApi;
 
   }
-  UpdateCarsWebApi(): Icar[] {
+  UpdateCarsWebApi() {
     this.message = 'Updating Car';
     let newCar : Icar= { Type:"Fieta", Model:1, Color:"Blue" };
        
@@ -108,10 +121,9 @@ export class ChildComponent implements OnInit, OnChanges {
         }
       }
       );
-    return this.carsWebApi;
 
   }
-  DeleteCarsWebApi(): Icar[] {
+  DeleteCarsWebApi() {
     this.message = 'Deleting Car';
     let newCar : Icar= { Type:"", Model:3, Color:"" };
        
@@ -127,7 +139,10 @@ export class ChildComponent implements OnInit, OnChanges {
         }
       }
       );
-    return this.carsWebApi;
 
+  }
+
+  GoHome() : void{
+    this.navigateroute.navigate(['/home'])
   }
 }

@@ -32,3 +32,12 @@ ngDestroy
 Bundling : as there will be on the restrictions on the no of js file loaded, small js are combied to form a lager one.
 Minfication : short hands, spaces.
 TreeShaking : removing code which are not using in the application.
+
+//Difference between observable and promise:
+1.observable returns multiple value while observable returns multiple value 
+2.observable issues the request only if we have the subscribe(Lazy),but promise issue the request even if we dont have then()
+3.observable can be cancelled, promises can'template
+4.observable has many functions like map,foreach,filter,reduce,retry,retryWhen.
+
+RxJs:
+Typecasting observable,throwError(),.pipe(catchError()),retry
