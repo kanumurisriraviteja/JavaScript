@@ -74,3 +74,7 @@ constructor(private _http : HttpClient) { }
       </customHeaders>
     </httpProtocol>
   </system.webServer>
+
+DI in angular:
+  The data can be shared between the components as a service, by using the DI of the angular the Singleton instance of the service class is created, 
+  and the class level variables/Methods can be shared. if we create using the new keyword then multiple instances would be created.

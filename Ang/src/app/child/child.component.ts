@@ -11,7 +11,9 @@ import {CarsWebapiService} from '../Services/cars-webapi.service';
 })
 export class ChildComponent implements OnInit, OnChanges {
 
+  // private carsserviceStatic : CarsService;
   constructor(private cars: CarsService, private carsWebapi: CarsWebapiService) {
+    // this.carsserviceStatic = new CarsService();//creating using new instead of DI.
     console.log('constructor in the child component');
     console.log(this.parentToChild); // undefined
   }
@@ -22,14 +24,15 @@ export class ChildComponent implements OnInit, OnChanges {
   @Output()
   childToParent = new EventEmitter<any>();
   // Inteface:  typo no run time errors.
-  car: Icar[] = [];
+  carstatic: Icar[] = [];
   carsWebApi: Icar[] = [];
 
   messageStatus: boolean;
   message: string;
 
   ngOnInit(): void {
-    this.car = this.cars.GetCars();
+    //  this.carstatic = this.carsserviceStatic.GetCars();
+    this.carstatic = this.cars.GetCars();
     console.log('OnInit in the child component');
   }
 
@@ -49,7 +52,7 @@ export class ChildComponent implements OnInit, OnChanges {
     console.log(this.parentToChild); // data of the property
 
     // here on click of the button the event emitter is invoked.
-    this.childToParent.emit(this.car);
+    this.childToParent.emit(this.carstatic);
   }
 
   CarsWebApi(): Icar[] {

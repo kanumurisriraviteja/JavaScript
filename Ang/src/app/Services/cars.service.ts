@@ -3,6 +3,12 @@ import {Icar} from '../child/ICar';
 
 @Injectable()
 export class CarsService {
+
+    // TODO how to pass if needed.
+    // constructor(c :number) {
+    //     console.log('static car service is called'+c);
+    // }
+
     GetCars(): Icar[] {
         return [
                     { Type: 'ford', Model: 1, Color: 'white' },

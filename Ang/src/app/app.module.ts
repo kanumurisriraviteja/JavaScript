@@ -10,6 +10,7 @@ import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
 import {PageNotFoundComponent} from './Others/pagenotfound.component';
 import {HomeComponent} from './Others/home.component';
+import { CustomDirective } from './Others/custom.directive';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {HomeComponent} from './Others/home.component';
     ParentComponent,
     ChildComponent,
     HomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    CustomDirective
   ],
   imports: [
     BrowserModule,
