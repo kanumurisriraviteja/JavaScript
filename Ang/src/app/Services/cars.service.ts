@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Icar} from '../home/childhome/ICar';
+import {Icar} from '../home/child/ICar';
 
 @Injectable()
 export class CarsService {

@@ -5,11 +5,11 @@ import {CarsWebapiService} from '../../Services/cars-webapi.service';
 
 @Component({
   selector: 'app-childhome',
-  templateUrl: './childhome.component.html',
-  styleUrls: ['./childhome.component.css'],
+  templateUrl: './child.component.html',
+  styleUrls: ['./child.component.css'],
   providers : [CarsService, CarsWebapiService]
 })
-export class ChildhomeComponent implements OnInit, OnChanges {
+export class ChildComponent implements OnInit, OnChanges {
 
   // private carsserviceStatic : CarsService;
   constructor(private cars: CarsService, private carsWebapi: CarsWebapiService) {
