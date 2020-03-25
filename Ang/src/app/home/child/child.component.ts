@@ -1,9 +1,10 @@
-import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges, OnChanges, NO_ERRORS_SCHEMA } from '@angular/core';
 import { Icar } from './ICar';
 import {CarsService} from '../../Services/cars.service';
 import {CarsWebapiService} from '../../Services/cars-webapi.service';
 import {Router} from '@angular/router';
-import {retry} from 'rxjs/operators';
+import {retry, retryWhen, scan, delay} from 'rxjs/operators';
+import { throwError, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-child',
@@ -14,7 +15,7 @@ import {retry} from 'rxjs/operators';
 export class ChildComponent implements OnInit, OnChanges {
 
   // private carsserviceStatic : CarsService;
-  constructor(private cars: CarsService, private carsWebapi: CarsWebapiService,private navigateroute : Router ) {
+  constructor(private cars: CarsService, private carsWebapi: CarsWebapiService, private navigateroute: Router ) {
     // this.carsserviceStatic = new CarsService();//creating using new instead of DI.
     console.log('constructor in the child component');
     console.log(this.parentToChild); // undefined
@@ -57,11 +58,18 @@ export class ChildComponent implements OnInit, OnChanges {
     this.childToParent.emit(this.carstatic);
   }
 
-  CarsWebApi() : void { 
+  CarsWebApi(): void {
     this.message = 'Data is Loading..';
-
     // This is an Observable
-    this.carsWebapi.GetCarsWebApi().subscribe(data => this.carsWebApi = data,
+    this.carsWebapi.GetCarsWebApi().pipe(retryWhen(errors => {
+         return  errors.pipe(scan((rc) => {
+             rc += 1;
+             if (rc < 3) { this.message = 'Retrying' + rc; return rc; } else {
+               this.message = 'error in returning from the service,please contact admin';
+               }
+            }, 0)).pipe(delay(1000));
+      }
+    )).subscribe(data => this.carsWebApi = data,
       (error) => {
         this.messageStatus = false ;
         this.message = error;
@@ -71,9 +79,12 @@ export class ChildComponent implements OnInit, OnChanges {
         if (this.messageStatus) {
         this.message = 'loaded successfully';
         }
-      }).add(retry(10));
+      });
+      // .pipe(retry(10))
+      // .pipe(retryWhen(delay(1000)))
+
     // This is a Promise.
-    
+
     //  this.carsWebapi.GetCarsWebApiPromise().then( (data) => {
     //      this.carsWebApi = data
     //       this.messageStatus = true;
@@ -84,13 +95,13 @@ export class ChildComponent implements OnInit, OnChanges {
     //     .catch((error) => {
     //       this.messageStatus = false ;
     //       this.message = error;
-    //     });  
+    //     });
   }
 
   InsertCarsWebApi() {
     this.message = 'Inserting Car';
-    let newCar : Icar= { Type:"ford", Model:5, Color:"white" };
-       
+    const newCar: Icar = { Type: 'ford', Model: 5, Color: 'white' };
+
     this.carsWebapi.InsertCarWebApi(newCar).subscribe(data => this.carsWebApi = data,
       (error) => {
         this.messageStatus = false ;
@@ -107,8 +118,8 @@ export class ChildComponent implements OnInit, OnChanges {
   }
   UpdateCarsWebApi() {
     this.message = 'Updating Car';
-    let newCar : Icar= { Type:"Fieta", Model:1, Color:"Blue" };
-       
+    const newCar: Icar = { Type: 'Fieta', Model: 1, Color: 'Blue' };
+
     this.carsWebapi.UpdateCarWebApi(newCar).subscribe(data => this.carsWebApi = data,
       (error) => {
         this.messageStatus = false ;
@@ -125,8 +136,8 @@ export class ChildComponent implements OnInit, OnChanges {
   }
   DeleteCarsWebApi() {
     this.message = 'Deleting Car';
-    let newCar : Icar= { Type:"", Model:3, Color:"" };
-       
+    const newCar: Icar = { Type: '', Model: 3, Color: '' };
+
     this.carsWebapi.DeleteCarWebApi(newCar).subscribe(data => this.carsWebApi = data,
       (error) => {
         this.messageStatus = false ;
@@ -142,7 +153,7 @@ export class ChildComponent implements OnInit, OnChanges {
 
   }
 
-  GoHome() : void{
-    this.navigateroute.navigate(['/home'])
+  GoHome(): void {
+    this.navigateroute.navigate(['/home']);
   }
 }

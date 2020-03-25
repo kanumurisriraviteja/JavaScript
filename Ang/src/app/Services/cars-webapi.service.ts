@@ -23,17 +23,17 @@ export class CarsWebapiService {
         return this.genericHttp.HttpGetService('Values/GetCar');
     }
 
-    InsertCarWebApi(car : Icar) : Observable<Icar[]> {
+    InsertCarWebApi(car: Icar): Observable<Icar[]> {
       return this.genericHttp.HttpInsertService('Values/PostCar', car);
     }
-    UpdateCarWebApi(car : Icar) : Observable<Icar[]> {
+    UpdateCarWebApi(car: Icar): Observable<Icar[]> {
       return this.genericHttp.HttpEditService('Values/PutCar', car);
     }
-    DeleteCarWebApi(car : Icar) : Observable<Icar[]> {
+    DeleteCarWebApi(car: Icar): Observable<Icar[]> {
       return this.genericHttp.HttpDeleteService('Values/DeleteCar', car.Model);
     }
 
-    GetCarsWebApiPromise() : Promise<any>{
+    GetCarsWebApiPromise(): Promise<any> {
       return this.genericHttp.HttpGetServicePromise('Values/GetCar');
     }
 }

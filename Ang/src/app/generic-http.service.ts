@@ -10,10 +10,10 @@ import {catchError} from 'rxjs/operators';
 
 export class GenericHttpService {
 
-  baseurl : string  ='https://localhost:44330/api/';
-  baseheader : HttpHeaders = new HttpHeaders({
+  baseurl = 'https://localhost:44330/api/';
+  baseheader: HttpHeaders = new HttpHeaders({
     'Content-Type' : 'application/json',
-    'responseType' : 'json' 
+    responseType : 'json'
     });
 
   constructor(private http: HttpClient) { }
@@ -22,21 +22,21 @@ export class GenericHttpService {
       return this.http.get<any>(`${this.baseurl}${url}`).pipe(catchError(this.errorHandler));
    }
 
-   public HttpInsertService(url: string,body: any): Observable<any> {
-     
-    return this.http.post<any>(`${this.baseurl}${url}`,body,{headers: this.baseheader})
+   public HttpInsertService(url: string, body: any): Observable<any> {
+
+    return this.http.post<any>(`${this.baseurl}${url}`, body, {headers: this.baseheader})
     .pipe(catchError(this.errorHandler));
  }
 
- public HttpEditService(url: string,body: any): Observable<any> {
-        
-      return this.http.put<any>(`${this.baseurl}${url}`,body,{headers: this.baseheader})
+ public HttpEditService(url: string, body: any): Observable<any> {
+
+      return this.http.put<any>(`${this.baseurl}${url}`, body, {headers: this.baseheader})
       .pipe(catchError(this.errorHandler));
     }
 
-    public HttpDeleteService(url: string,body: any): Observable<any> {
-      
-    return this.http.delete<any>(`${this.baseurl}${url}/${body}`,{headers: this.baseheader})
+    public HttpDeleteService(url: string, body: any): Observable<any> {
+
+    return this.http.delete<any>(`${this.baseurl}${url}/${body}`, {headers: this.baseheader})
     .pipe(catchError(this.errorHandler));
   }
   private errorHandler(errorHandler: HttpErrorResponse) {
@@ -47,9 +47,10 @@ export class GenericHttpService {
     }
     return throwError('error in returning from the service,please contact admin');
   }
-  
+
   public HttpGetServicePromise(url: string): Promise<any> {
-    return this.http.get<any>(`${this.baseurl}${url}`).pipe(catchError(()=>{return throwError('error in returning from the service,please contact admin');}))
+    return this.http.get<any>(`${this.baseurl}${url}`).pipe(catchError(() =>
+                       throwError('error in returning from the service,please contact admin')))
               .toPromise();
  }
 }
