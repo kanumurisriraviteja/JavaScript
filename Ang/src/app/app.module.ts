@@ -7,7 +7,7 @@ import { TestModule } from './test/test.module';
 import { HomeModule } from './home/home.module';
 import {ApplicationSharedResourcesModule} from './application-shared-resources.module';
 
-import { CustomDirective } from './Others/custom.directive';
+import { CustomDirective } from './Custom/custom.directive';
 
 import { AppComponent } from './app.component';
 import {PageNotFoundComponent} from './Others/pagenotfound.component';

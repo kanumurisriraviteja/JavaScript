@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {CustPipe} from './Custom/cp.pipe';
+import {VowelPipe} from './Custom/vowel.pipe';
 
 
 
 @NgModule({
-  declarations: [CustPipe],
+  declarations: [VowelPipe],
   imports: [
     CommonModule
   ],
-  exports: [CustPipe]
+  exports: [VowelPipe]
 })
 export class ApplicationSharedResourcesModule { }

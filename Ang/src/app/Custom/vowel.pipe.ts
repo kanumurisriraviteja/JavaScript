@@ -4,7 +4,7 @@ import {Pipe, PipeTransform} from '@angular/core';
     name: 'vowelpipe'
 })
 
-export class CustPipe implements PipeTransform {
+export class VowelPipe implements PipeTransform {
     transform(value: any, index: number) {
         return `${value} has vowels ${this.getVowelCount(value)} and the array index is ${index}` ;
     }
@@ -14,10 +14,10 @@ export class CustPipe implements PipeTransform {
         let sing = '';
         const vowels: string[] = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
 
-        for (const index of ip) {
-            sing = ip[index];
+        for (let i = 0; i < ip.length; i++) {
+            sing = ip[i];
             if (vowels.indexOf(sing) !== -1) {
-              count++;
+                        count++;
             }
         }
         return count;
