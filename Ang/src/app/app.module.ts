@@ -5,7 +5,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { TestModule } from './test/test.module';
 import { HomeModule } from './home/home.module';
-import {ApplicationSharedResourcesModule} from './Custom/application-shared-resources.module';
+import {ApplicationSharedResourcesModule} from './application-shared-resources.module';
 
 import { CustomDirective } from './Others/custom.directive';
 

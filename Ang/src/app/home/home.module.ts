@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ChildhomeComponent } from './childhome/childhome.component';
 import { ParenthomeComponent } from './parenthome/parenthome.component'
-import { ApplicationSharedResourcesModule} from '../Custom/application-shared-resources.module';
+import { ApplicationSharedResourcesModule} from '../application-shared-resources.module';
 
 
 @NgModule({

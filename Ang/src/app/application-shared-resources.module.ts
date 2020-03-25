@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {CustPipe} from './cp.pipe';
+import {CustPipe} from './Custom/cp.pipe';
 
 
 
