@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-import { TestModule } from './test/test.module';
 import { HomeModule } from './home/home.module';
 import {ApplicationSharedResourcesModule} from './application-shared-resources.module';
 
@@ -27,7 +26,6 @@ import {HomeComponent} from './Others/home.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    TestModule,
     HomeModule,
     ApplicationSharedResourcesModule
   ],
