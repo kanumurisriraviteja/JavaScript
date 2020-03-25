@@ -72,4 +72,62 @@ export class ChildComponent implements OnInit, OnChanges {
       );
     return this.carsWebApi;
   }
+
+  InsertCarsWebApi(): Icar[] {
+    this.message = 'Inserting Car';
+    let newCar : Icar= { Type:"ford", Model:5, Color:"white" };
+       
+    this.carsWebapi.InsertCarWebApi(newCar).subscribe(data => this.carsWebApi = data,
+      (error) => {
+        this.messageStatus = false ;
+        this.message = error;
+      },
+      () => {
+        this.messageStatus = true;
+        if (this.messageStatus) {
+        this.message = 'loaded successfully';
+        }
+      }
+      );
+    return this.carsWebApi;
+
+  }
+  UpdateCarsWebApi(): Icar[] {
+    this.message = 'Updating Car';
+    let newCar : Icar= { Type:"Fieta", Model:1, Color:"Blue" };
+       
+    this.carsWebapi.UpdateCarWebApi(newCar).subscribe(data => this.carsWebApi = data,
+      (error) => {
+        this.messageStatus = false ;
+        this.message = error;
+      },
+      () => {
+        this.messageStatus = true;
+        if (this.messageStatus) {
+        this.message = 'updated successfully';
+        }
+      }
+      );
+    return this.carsWebApi;
+
+  }
+  DeleteCarsWebApi(): Icar[] {
+    this.message = 'Deleting Car';
+    let newCar : Icar= { Type:"", Model:3, Color:"" };
+       
+    this.carsWebapi.DeleteCarWebApi(newCar).subscribe(data => this.carsWebApi = data,
+      (error) => {
+        this.messageStatus = false ;
+        this.message = error;
+      },
+      () => {
+        this.messageStatus = true;
+        if (this.messageStatus) {
+        this.message = 'Deleted successfully';
+        }
+      }
+      );
+    return this.carsWebApi;
+
+  }
 }
