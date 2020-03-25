@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-parent',
-  templateUrl: './parent.component.html',
-  styleUrls: ['./parent.component.css']
+  selector: 'app-parenthome',
+  templateUrl: './parenthome.component.html',
+  styleUrls: ['./parenthome.component.css']
 })
-export class ParentComponent implements OnInit {
+export class ParenthomeComponent implements OnInit {
 
   constructor() {
     console.log('constructor in the PARENT component');

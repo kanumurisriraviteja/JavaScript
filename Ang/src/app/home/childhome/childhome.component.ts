@@ -1,15 +1,15 @@
 import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges, OnChanges } from '@angular/core';
 import { Icar } from './ICar';
-import {CarsService} from '../Services/cars.service';
-import {CarsWebapiService} from '../Services/cars-webapi.service';
+import {CarsService} from '../../Services/cars.service';
+import {CarsWebapiService} from '../../Services/cars-webapi.service';
 
 @Component({
-  selector: 'app-child',
-  templateUrl: './child.component.html',
-  styleUrls: ['./child.component.css'],
+  selector: 'app-childhome',
+  templateUrl: './childhome.component.html',
+  styleUrls: ['./childhome.component.css'],
   providers : [CarsService, CarsWebapiService]
 })
-export class ChildComponent implements OnInit, OnChanges {
+export class ChildhomeComponent implements OnInit, OnChanges {
 
   // private carsserviceStatic : CarsService;
   constructor(private cars: CarsService, private carsWebapi: CarsWebapiService) {
