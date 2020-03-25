@@ -23,9 +23,13 @@ export class FirstComponent{
 
 Module:
 ---------------------------------------------------------------------------
-
+// All the components,directvies,pipes : declarations[]
+// All the modules in imports[]
+// All the services in providers[]
+// Creating shared modules allows you to organize and streamline your code. You can put commonly used directives, pipes, and components into one module and then import just that module wherever you need it in other parts of your app.
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser'; //needs to run angular in all browsers
+
 @NgModule({
   declarations: [
     AppComponent,
