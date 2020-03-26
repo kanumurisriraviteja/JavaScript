@@ -16,6 +16,8 @@ ng e2e // runs the end to end tests.
 ng lint
 ng lint --fix
 
+ ng update
+
 inetmgr
 prod build : ng build --prod
  
