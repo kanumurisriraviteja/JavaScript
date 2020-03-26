@@ -1,20 +1,20 @@
 import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges, OnChanges, NO_ERRORS_SCHEMA } from '@angular/core';
 import { Icar } from './ICar';
-import {CarsService} from '../../Services/cars.service';
-import {CarsWebapiService} from '../../Services/cars-webapi.service';
-import {Router} from '@angular/router';
-import {retry, retryWhen, scan, delay} from 'rxjs/operators';
+import { CarsService } from '../../Services/cars.service';
+import { CarsWebapiService } from '../../Services/cars-webapi.service';
+import { Router } from '@angular/router';
+import { retry, retryWhen, scan, delay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-child',
   templateUrl: './child.component.html',
   styleUrls: ['./child.component.css'],
-  providers : [CarsService, CarsWebapiService]
+  providers: [CarsService, CarsWebapiService]
 })
 export class ChildComponent implements OnInit, OnChanges {
 
   // private carsserviceStatic : CarsService;
-  constructor(private cars: CarsService, private carsWebapi: CarsWebapiService, private navigateroute: Router ) {
+  constructor(private cars: CarsService, private carsWebapi: CarsWebapiService, private navigateroute: Router) {
     // this.carsserviceStatic = new CarsService();//creating using new instead of DI.
     console.log('constructor in the child component');
     console.log(this.parentToChild); // undefined
@@ -32,8 +32,8 @@ export class ChildComponent implements OnInit, OnChanges {
   messageStatus: boolean;
   message: string;
 
-  
-   domviewchild : string='';
+
+  domviewchild = '';
 
   ngOnInit(): void {
     //  this.carstatic = this.carsserviceStatic.GetCars();
@@ -64,26 +64,26 @@ export class ChildComponent implements OnInit, OnChanges {
     this.message = 'Data is Loading..';
     // This is an Observable
     this.carsWebapi.GetCarsWebApi().pipe(retryWhen(errors => {
-         return  errors.pipe(scan((rc) => {
-             rc += 1;
-             if (rc < 3) { this.message = 'Retrying' + rc; return rc; } else {
-               this.message = 'error in returning from the service,please contact admin';
-               }
-            }, 0)).pipe(delay(1000));
-      }
+      return errors.pipe(scan((rc) => {
+        rc += 1;
+        if (rc < 3) { this.message = 'Retrying' + rc; return rc; } else {
+          this.message = 'error in returning from the service,please contact admin';
+        }
+      }, 0)).pipe(delay(1000));
+    }
     )).subscribe(data => this.carsWebApi = data,
       (error) => {
-        this.messageStatus = false ;
+        this.messageStatus = false;
         this.message = error;
       },
       () => {
         this.messageStatus = true;
         if (this.messageStatus) {
-        this.message = 'loaded successfully';
+          this.message = 'loaded successfully';
         }
       });
-      // .pipe(retry(10))
-      // .pipe(retryWhen(delay(1000)))
+    // .pipe(retry(10))
+    // .pipe(retryWhen(delay(1000)))
 
     // This is a Promise.
 
@@ -106,16 +106,16 @@ export class ChildComponent implements OnInit, OnChanges {
 
     this.carsWebapi.InsertCarWebApi(newCar).subscribe(data => this.carsWebApi = data,
       (error) => {
-        this.messageStatus = false ;
+        this.messageStatus = false;
         this.message = error;
       },
       () => {
         this.messageStatus = true;
         if (this.messageStatus) {
-        this.message = 'loaded successfully';
+          this.message = 'loaded successfully';
         }
       }
-      );
+    );
 
   }
   UpdateCarsWebApi() {
@@ -124,16 +124,16 @@ export class ChildComponent implements OnInit, OnChanges {
 
     this.carsWebapi.UpdateCarWebApi(newCar).subscribe(data => this.carsWebApi = data,
       (error) => {
-        this.messageStatus = false ;
+        this.messageStatus = false;
         this.message = error;
       },
       () => {
         this.messageStatus = true;
         if (this.messageStatus) {
-        this.message = 'updated successfully';
+          this.message = 'updated successfully';
         }
       }
-      );
+    );
 
   }
   DeleteCarsWebApi() {
@@ -142,20 +142,20 @@ export class ChildComponent implements OnInit, OnChanges {
 
     this.carsWebapi.DeleteCarWebApi(newCar).subscribe(data => this.carsWebApi = data,
       (error) => {
-        this.messageStatus = false ;
+        this.messageStatus = false;
         this.message = error;
       },
       () => {
         this.messageStatus = true;
         if (this.messageStatus) {
-        this.message = 'Deleted successfully';
+          this.message = 'Deleted successfully';
         }
       }
-      );
+    );
 
   }
 
   GoHome(): void {
-    this.navigateroute.navigate(['/home']);
+    this.navigateroute.navigate(['/create']);
   }
 }

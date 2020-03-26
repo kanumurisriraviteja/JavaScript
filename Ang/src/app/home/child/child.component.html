@@ -2,8 +2,8 @@
 <p>{{domviewchild}} {{parentToChild}} </p>
 <!--TODO <p #domchild1></p> -->
 <br/>
-<button (click)=btnClick()>CHILD component to Parent</button>&nbsp;&nbsp;
-<button (click)=CarsWebApi()>CHILD Cars WebApi</button> &nbsp;&nbsp;
+<button (click)=btnClick()>CHILD to PARENT</button>&nbsp;&nbsp;
+<button (click)=CarsWebApi()>Get Cars WebApi</button> &nbsp;&nbsp;
 <button (click)=InsertCarsWebApi()>Insert New Car</button>&nbsp;&nbsp;
 <button (click)=UpdateCarsWebApi()>Update</button>&nbsp;&nbsp;
 <button (click)=DeleteCarsWebApi()>Delete</button>
@@ -23,7 +23,7 @@ Cars web api output of btnclick {{carsWebApi|json}}
 </thead>
 
 <tbody>
-    <tr *ngIf='!messageStatus'>No DATA</tr>
+    <tr colspan="3" *ngIf='!messageStatus'>No DATA</tr>
     <ng-container *ngIf='messageStatus'>
     <tr *ngFor="let e of carsWebApi">
         <td>{{e.Model}}</td>
@@ -33,4 +33,4 @@ Cars web api output of btnclick {{carsWebApi|json}}
 </ng-container>
 </tbody>
 </table>
-<button type="button" (click)=GoHome() class="btn btn-link"> <<<<<<Home</button>
+<button type="button" (click)=GoHome() class="btn btn-link">Employee>>>>>>>>>>>>>></button>

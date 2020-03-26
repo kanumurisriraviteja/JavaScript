@@ -8,6 +8,7 @@ ng new Ang
 ng new Ang --d // dry run
 npm install >> this restores all the packages.
 npm install bootstrap jquery
+npm install ngx-bootstrap --save
 
 ng serve --watch=false --live-reload=false --port=4201 --open 
 ng build --dev ;(produces source maps,Just In Time(JIT))   ng build --prod (ahead of time (aot))// this is bin folder.

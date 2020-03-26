@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent} from './Others/home.component';
 import { PageNotFoundComponent} from './Others/pagenotfound.component';
 import {ParentComponent} from './home/parent/parent.component';
+import {CreateEmloyeeComponent} from './employees/create-emloyee/create-emloyee.component';
 
 const routes: Routes =
 [
-  {path: 'home', component: HomeComponent},
-  {path: 'hm', component: ParentComponent},
+  {path: 'home', component: ParentComponent},
+  {path: 'create', component: CreateEmloyeeComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}
 ];

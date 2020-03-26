@@ -1,25 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './home/home.module';
-import {ApplicationSharedResourcesModule} from './application-shared-resources.module';
-
-import { CustomDirective } from './Custom/custom.directive';
+import { EmployeesModule } from './employees/employees.module';
+import { ApplicationSharedResourcesModule } from './application-shared-resources.module';
 
 import { AppComponent } from './app.component';
-import {PageNotFoundComponent} from './Others/pagenotfound.component';
-import {HomeComponent} from './Others/home.component';
-
-
+import { PageNotFoundComponent } from './Others/pagenotfound.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    PageNotFoundComponent,
-    CustomDirective
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +21,7 @@ import {HomeComponent} from './Others/home.component';
     FormsModule,
     HttpClientModule,
     HomeModule,
+    EmployeesModule,
     ApplicationSharedResourcesModule
   ],
   exports: [],

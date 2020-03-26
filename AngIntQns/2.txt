@@ -1,0 +1,6 @@
+Forms in angular :
+1. Template Driven (simple)
+2. Model/Reactive Driven (complex)
+
+In the json created the name field value will be the property and the [()] will the value
+[(ngModel)] ="fullName" in html .ts fullName : string must be there in both
