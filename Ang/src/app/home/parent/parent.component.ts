@@ -11,8 +11,7 @@ export class ParentComponent implements OnInit {
     console.log('constructor in the PARENT component');
     console.log(`${this.firstname}`);
    }
-
-  title = 'Angular';
+   
   srcPath = '../assets/1.jpg';
   firstname = 'teja';
   lastname = '';

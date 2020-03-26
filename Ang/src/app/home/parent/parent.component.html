@@ -1,16 +1,13 @@
-<div>
-    <span>Welcome {{title}}</span>
-    <br/>
-  
+<div class="row">
+  <div class="col-sm-4">
     <img  src="{{srcPath}}" width="50" height="50"><br/><br/>
-  
+  <div>
     <!-- here value is attribute binding which flows data from class to html 
       and input is event binding which flows the data from html to the class-->
-    First Name : <input type="text" [value]='firstname' (input)= 'firstname=$event.target.value'/><br/>
+    First Name : <input type="text" [value]='firstname' (input)= 'firstname=$event.target.value'/><br/><br/>
     Second Name : <input type="text" [(ngModel)]='lastname'/><br/>
     You Have Entered : First Name : {{firstname}} Second Name :{{lastname}} <br/>{{fullname}}
-    <br/><br/>
-  
+    <br/>
     <table>
       <!-- Cant place multiple directives together-->
       <ng-container *ngFor="let e of count;let i=index"> 
@@ -20,13 +17,13 @@
       </tr>
     </ng-container>
     </table>
-    <button (click)=btnClick()>PARENT Component Button</button>
-     <div>
-       Data  Received from the child to the parent is {{receivedFromChild | json }}
-     </div>
-     
-     <p>-----------------------------------------------------------------------------------</p>
-      <div>
+    <br/>
+    <button type="button" class="btn btn-primary" (click)=btnClick()>PARENT Component Button</button>
+  </div>
+    <br/>
+     <p>Data  Received from the child to the parent is {{receivedFromChild | json }}</p>
+    </div>
+      <div class="col-md-8">
         <!-- Here [parentToChild] is the @Input Component present in the child component-->
         <!-- Here (childToParent) is the @Output component,
            this is in the child component and will send update to the parent-->

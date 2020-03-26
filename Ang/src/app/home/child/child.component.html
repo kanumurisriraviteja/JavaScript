@@ -1,5 +1,5 @@
-<p>-----------------------------------------------------------------------------------</p>
-This is the data passed from parent to the child : {{parentToChild}}
+
+<p>This is the data passed from parent to the child : {{parentToChild}} </p>
 <br/>
 <button (click)=btnClick()>CHILD component to Parent</button>&nbsp;&nbsp;
 <button (click)=CarsWebApi()>CHILD Cars WebApi</button> &nbsp;&nbsp;
@@ -8,13 +8,13 @@ This is the data passed from parent to the child : {{parentToChild}}
 <button (click)=DeleteCarsWebApi()>Delete</button>
 
 <br/><br/>
-Cars static data {{carstatic|json}} <br/>
-Status message: {{message}}<br/><br/>
-<div *ngIf='messageStatus'> 
+Cars static data {{carstatic|json}} <br/><br/>
+<p><B>Status message:</B>&nbsp;<i>{{message}}</i><br/></p>
+<p *ngIf='messageStatus'> 
 Cars web api output of btnclick {{carsWebApi|json}}
-</div>
+</p>
 
-<table>
+<table class="table table-striped">
     <thead>
     <th>Model</th>
     <th>Type</th>
@@ -22,7 +22,7 @@ Cars web api output of btnclick {{carsWebApi|json}}
 </thead>
 
 <tbody>
-    <tr *ngIf='!messageStatus' aria-colspan="3">No DATA</tr>
+    <tr *ngIf='!messageStatus'>No DATA</tr>
     <ng-container *ngIf='messageStatus'>
     <tr *ngFor="let e of carsWebApi">
         <td>{{e.Model}}</td>
@@ -32,4 +32,4 @@ Cars web api output of btnclick {{carsWebApi|json}}
 </ng-container>
 </tbody>
 </table>
-<button (click)=GoHome()>Direct Home</button>
+<button type="button" (click)=GoHome() class="btn btn-link"> <<<<<<Home</button>
