@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker'
+import { ApplicationSharedResourcesModule } from '../../application-shared-resources.module';
+
 
 @Component({
   selector: 'app-create-emloyee',
@@ -9,15 +10,9 @@ import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker'
 })
 export class CreateEmloyeeComponent implements OnInit {
 
-  bsDatePickerConfig: Partial<BsDatepickerConfig>;
-  constructor() {
-    this.bsDatePickerConfig = Object.assign({},
-      {
-        containerClass: 'theme-dark-blue',
-        showWeekNumbers: false,
-        dateInputFormat :'DD/MM/YYYY'
-      })
-
+  bsDatePickerConfig: any;
+  constructor(private bootStrapDate: ApplicationSharedResourcesModule) {
+    this.bsDatePickerConfig = bootStrapDate.bsGenericDatePickerConfig;
   }
 
   fullName: string;

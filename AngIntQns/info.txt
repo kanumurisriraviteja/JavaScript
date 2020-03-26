@@ -2,6 +2,8 @@ A class if it has a @Component it becomes a component, but where as if it has @N
 components must be in the declarations of the module.
 all the services which has the DI must be present in the providers of the component.
 
+if we want to create a instance to all the module introduce in app.module else inject in specific module.
+
 Component : class, selector, template 
 -----------------------------------------------------------------------
 import { Component,Input,Output,EventEmitter } from "@angular/core";
@@ -27,6 +29,7 @@ Module:
 // All the modules in imports[]
 // All the services in providers[]
 // Creating shared modules allows you to organize and streamline your code. You can put commonly used directives, pipes, and components into one module and then import just that module wherever you need it in other parts of your app.
+// what ever we import would be specific to one module.
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser'; //needs to run angular in all browsers
 

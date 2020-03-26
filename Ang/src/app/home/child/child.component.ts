@@ -4,6 +4,7 @@ import { CarsService } from '../../Services/cars.service';
 import { CarsWebapiService } from '../../Services/cars-webapi.service';
 import { Router } from '@angular/router';
 import { retry, retryWhen, scan, delay } from 'rxjs/operators';
+import { ApplicationSharedResourcesModule } from '../../application-shared-resources.module';
 
 @Component({
   selector: 'app-child',
@@ -13,11 +14,15 @@ import { retry, retryWhen, scan, delay } from 'rxjs/operators';
 })
 export class ChildComponent implements OnInit, OnChanges {
 
+  bsDatePickerConfig: any;
+
   // private carsserviceStatic : CarsService;
-  constructor(private cars: CarsService, private carsWebapi: CarsWebapiService, private navigateroute: Router) {
+  constructor(private cars: CarsService, private carsWebapi: CarsWebapiService, private navigateroute: Router,
+              private bootStrapDate: ApplicationSharedResourcesModule) {
     // this.carsserviceStatic = new CarsService();//creating using new instead of DI.
     console.log('constructor in the child component');
     console.log(this.parentToChild); // undefined
+    this.bsDatePickerConfig = bootStrapDate.bsGenericDatePickerConfig;
   }
 
   @Input()
@@ -31,8 +36,6 @@ export class ChildComponent implements OnInit, OnChanges {
 
   messageStatus: boolean;
   message: string;
-
-
   domviewchild = '';
 
   ngOnInit(): void {
