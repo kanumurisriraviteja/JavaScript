@@ -1,16 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit,ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { ChildComponent } from '../child/child.component';
 
 @Component({
   selector: 'app-parent',
   templateUrl: './parent.component.html',
   styleUrls: ['./parent.component.css']
 })
-export class ParentComponent implements OnInit {
+export class ParentComponent implements OnInit, AfterViewInit ,AfterContentInit{
 
+  @ViewChild('manipulate') parentdomelement: ElementRef;
+  @ViewChild('domchild1') childdomelement: ElementRef;
+  @ViewChild(ChildComponent) childFullDom : ChildComponent;
+  
   constructor() {
     console.log('constructor in the PARENT component');
     console.log(`${this.firstname}`);
    }
+  ngAfterContentInit(): void {
+  }
+
+  ngAfterViewInit(): void {
+     this.parentdomelement.nativeElement.innerText = 'This is Parent Component';
+    //TODO this.childdomelement.nativeElement.innerText = '--';
+     this.childFullDom.domviewchild='This is the data passed from parent to the child :';
+  }
 
   srcPath = '../assets/1.jpg';
   firstname = 'teja';

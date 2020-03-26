@@ -4,7 +4,6 @@ import {CarsService} from '../../Services/cars.service';
 import {CarsWebapiService} from '../../Services/cars-webapi.service';
 import {Router} from '@angular/router';
 import {retry, retryWhen, scan, delay} from 'rxjs/operators';
-import { throwError, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-child',
@@ -32,6 +31,9 @@ export class ChildComponent implements OnInit, OnChanges {
 
   messageStatus: boolean;
   message: string;
+
+  
+   domviewchild : string='';
 
   ngOnInit(): void {
     //  this.carstatic = this.carsserviceStatic.GetCars();

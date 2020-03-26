@@ -1,5 +1,6 @@
 <div class="row">
-  <div class="col-sm-4">
+    <div class="col-sm-4">
+      <h4 #manipulate></h4>
     <img  src="{{srcPath}}" width="50" height="50"><br/><br/>
   <div>
     <!-- here value is attribute binding which flows data from class to html 
@@ -23,12 +24,17 @@
     <br/>
      <p>Data  Received from the child to the parent is {{receivedFromChild | json }}</p>
     </div>
-      <div class="col-md-8">
+
+    <div class="col-md-8">
         <!-- Here [parentToChild] is the @Input Component present in the child component-->
         <!-- Here (childToParent) is the @Output component,
            this is in the child component and will send update to the parent-->
            <!--[parentToChild] is from parent to the child via the @Input parameter
               (childToParent)  is from child to the parent which emits the data in the child and parent catches it-->
-        <app-child [parentToChild]= "firstname" (childToParent)="GetOutputFromChild($event)"> </app-child>
-      </div>
+        <app-child [parentToChild]= "firstname" (childToParent)="GetOutputFromChild($event)">
+          <!-- this is the contentview -->
+             <h4>This is the child component</h4>  
+        </app-child>
+        
+    </div>
   </div>
