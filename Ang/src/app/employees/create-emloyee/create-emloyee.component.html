@@ -1,4 +1,5 @@
-<form #employeeForm="ngForm" (ngSubmit)="saveEmployee(employeeForm)">
+<form #employeeForm="ngForm" (ngSubmit)="saveEmployee(employee)">
+    <!-- saveEmployee(employeeForm)->saveEmployee(employee) ngNativeValidate-->
     <div class="row">
         <div class="col-sm-4">
             <div class="panel panel-primary">
@@ -6,22 +7,33 @@
                     <h3 class="panel-title">Create Employee</h3>
                 </div>
                 <div class="panel-body">
-                    <div class="form-group">
+                    <div class="form-group" [class.has-error]="name.invalid && name.touched"
+                        [class.has-success]="name.valid">
                         <label for="name" class="control-label">Name</label>
-                        <input required id="name" type="text" name="fullName" [(ngModel)]="fullName"
-                            class="form-control">
+                        <input id="name" required type="text" name="name" [(ngModel)]="employee.name"
+                            class="form-control" #name="ngModel">
+                        <span class="help-block" *ngIf="name.invalid && name.touched">
+                            Name is required
+                        </span>
+                    </div>
+                    <div class="form-group" [class.has-error]="email.invalid && email.touched">
+                        <label for="email" class="control-label">Email</label>
+                        <input id="email" required
+                            pattern="^[a-zA-Z0-9_.+-]+@(?:(?:[a-zA-Z0-9-]+\.)?[a-zA-Z]+\.)?(gmail)\.com$" name="email"
+                            #email="ngModel" [(ngModel)]="employee.email" type="text" class="form-control">
+                        <span class="help-block" *ngIf="email.touched && email.errors?.required">
+                            Email is required
+                        </span>
+                        <span class="help-block" *ngIf="email.errors?.pattern">
+                            Email is invalid
+                        </span>
                     </div>
 
-                    <div class="form-group">
-                        <label for="email" class="control-label">Email</label>
-                        <input id="email" name="email" type="text" name="email" [(ngModel)]="email"
-                            class="form-control">
-                    </div>
                     <div class="form-group">
                         <label for="dob" class="control-label">Date of Birth</label>
                         <!-- each browser different experience -->
                         <!-- <input id="dob" name="dob" type="date" name="dob" [(ngModel)]="dob" class="form-control"> -->
-                        <input id="dob" name="dob" name="dob" [(ngModel)]="dob" class="form-control"
+                        <input id="dob" name="dob" name="dob" [(ngModel)]="employee.dob" class="form-control"
                             bsDatepicker [bsConfig]='bsDatePickerConfig'>
                     </div>
 
@@ -29,22 +41,22 @@
                         <label>Gender</label>
                         <div class="form-control">
                             <label class="radio-inline"><input type="radio" name="gender" value="male"
-                                    [(ngModel)]="gender">Male</label>
+                                    [(ngModel)]="employee.gender">Male</label>
                             <label class="radio-inline"><input type="radio" name="gender" value="female"
-                                    [(ngModel)]="gender">Female</label>
+                                    [(ngModel)]="employee.gender">Female</label>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="form-control">
                             <label class="checkbox-inline control-label">
-                                <input type="checkbox" name="angular" [(ngModel)]="angular"> Angular
+                                <input type="checkbox" name="angular" [(ngModel)]="employee.angular"> Angular
                             </label>
                             <label class="checkbox-inline control-label">
-                                <input type="checkbox" name="dotnetcore" [(ngModel)]="dotnetcore"> .net core
+                                <input type="checkbox" name="dotnetcore" [(ngModel)]="employee.dotnetcore"> .net core
                             </label>
                             <label class="checkbox-inline control-label">
-                                <input type="checkbox" name="python" [(ngModel)]="python" disabled> Python
+                                <input type="checkbox" name="python" [(ngModel)]="employee.python" disabled> Python
                             </label>
                         </div>
                     </div>
@@ -53,17 +65,23 @@
                         <label for="College" class="control-label">
                             College
                         </label>
-                        <select id="college" name="college" [(ngModel)]="college" class="form-control">
+                        <select id="college" name="college" [(ngModel)]="employee.college" class="form-control"
+                            #college="ngModel" appSelectValidator="select">
                             <option value="select">Select College</option>
                             <option value="iit">IIT</option>
                             <option value="nit">NIT</option>
                             <option value="none">Other</option>
                         </select>
-                        <!-- <span class="help-block" *ngIf="touched && invalid">
-                          College is required
-                        </span> -->
+                        <span class="help-block" *ngIf="college.touched && college.errors?.defaultSelected">
+                            College is required
+                        </span>
                     </div>
 
+                    <!-- <div class="form-grup">
+                        <div class="form-control">
+                            <button type= "button" (click)=testclick(employeeForm)>Test</button>
+                        </div>
+                    </div> -->
                 </div>
                 <div class="panel-footer">
                     <button type="submit" class="btn btn-primary">Save</button>
@@ -74,4 +92,5 @@
 
 </form>
 
-Form value is : {{employeeForm.value | json }}
+Form value is : {{employeeForm.value | json }} <br />
+Employee value is : {{employee | json }}

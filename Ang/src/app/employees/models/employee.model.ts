@@ -1,12 +1,11 @@
 export class Employee {
-    id: number;
+    // id?: number;
     name: string;
+    email: string;
     gender: string;
-    email?: string;
-    phoneNumber?: number;
-    contactPreference: string;
-    dateOfBirth: Date;
-    department: string;
-    isActive: boolean;
-    photoPath?: string;
+    angular: boolean;
+    dotnetcore: boolean;
+    python: boolean;
+    college: string;
+    dob: Date;
 }

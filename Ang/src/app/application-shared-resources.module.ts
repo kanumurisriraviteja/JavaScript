@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {VowelPipe} from './Custom/vowel.pipe';
+import { VowelPipe } from './Custom/vowel.pipe';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
-
+import { SelectRequiredValidatorDirective } from './Custom/select-required-validator.directive';
 
 @NgModule({
-  declarations: [VowelPipe],
+  declarations: [VowelPipe, SelectRequiredValidatorDirective],
   imports: [
     CommonModule
   ],
-  exports: [VowelPipe]
+  exports: [VowelPipe, SelectRequiredValidatorDirective]
 })
 export class ApplicationSharedResourcesModule {
 
@@ -19,7 +19,7 @@ export class ApplicationSharedResourcesModule {
       {
         containerClass: 'theme-dark-blue',
         showWeekNumbers: false,
-        dateInputFormat : 'DD/MM/YYYY'
+        dateInputFormat: 'DD/MM/YYYY'
       });
   }
 

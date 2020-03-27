@@ -1,5 +1,5 @@
 A class if it has a @Component it becomes a component, but where as if it has @NgModule it becomes a module.
-components must be in the declarations of the module.
+components must be in the declarations of the module,and a component must be declared only in one module. if need use in the common module and import the module.
 all the services which has the DI must be present in the providers of the component.
 
 if we want to create a instance to all the module introduce in app.module else inject in specific module.

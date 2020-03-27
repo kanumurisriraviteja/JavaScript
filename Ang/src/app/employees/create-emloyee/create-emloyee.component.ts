@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ApplicationSharedResourcesModule } from '../../application-shared-resources.module';
-
+import { Employee } from '../models/employee.model';
 
 @Component({
   selector: 'app-create-emloyee',
@@ -15,19 +15,29 @@ export class CreateEmloyeeComponent implements OnInit {
     this.bsDatePickerConfig = bootStrapDate.bsGenericDatePickerConfig;
   }
 
-  fullName: string;
-  email: string;
-  gender = 'male';
-  angular = true;
-  dotnetcore: boolean;
-  python: boolean;
-  college: string;
-  dob: Date;
+  employee: Employee = {
+    name: '',
+    email: '',
+    gender: 'male',
+    angular: true,
+    dotnetcore: false,
+    python: false,
+    college: 'select',
+    dob: null
+  };
+
+  // instead of creating these many fields we can import the class directly.
+  // fullName: string;
+  // email: string;
 
   ngOnInit(): void {
   }
 
-  saveEmployee(empDetails: NgForm): void {
+  // (empDetails: NgForm)
+    saveEmployee(empDetails: Employee): void {
     console.log(empDetails);
   }
+  // testclick(empDetails: NgForm): void {
+  //   console.log(empDetails);
+  // }
 }
