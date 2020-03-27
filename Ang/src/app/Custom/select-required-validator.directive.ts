@@ -13,8 +13,7 @@ export class SelectRequiredValidatorDirective implements Validator {
 
     @Input('appSelectValidator') defaultValue: string;
     validate(control: AbstractControl): { [key: string]: any } | null {
-
-        console.log(this.defaultValue);
+        console.log(control.parent.get('gender'));
         return control.value === this.defaultValue ? { defaultSelected: true } : null;
     }
 }

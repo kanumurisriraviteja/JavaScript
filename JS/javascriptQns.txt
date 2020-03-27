@@ -9,3 +9,14 @@ Techsith : https://www.youtube.com/watch?v=oxoFVqetl1E&list=PL7pEw9n3GkoWn5TcqAd
 Kud venkat JS 57. public, private functions variables.
 Namespaces:  https://javascriptweblog.wordpress.com/2010/12/07/namespacing-in-javascript/
 Object accesors:  https://www.w3schools.com/js/js_object_accessors.asp 
+
+class foo {
+    private _bar: boolean = false;
+    
+    get bar(): boolean {
+        return this._bar;
+    }
+    set bar(value: boolean) {
+        this._bar = value;
+    }
+}

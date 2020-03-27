@@ -18,7 +18,7 @@ export class ChildComponent implements OnInit, OnChanges {
 
   // private carsserviceStatic : CarsService;
   constructor(private cars: CarsService, private carsWebapi: CarsWebapiService, private navigateroute: Router,
-              private bootStrapDate: ApplicationSharedResourcesModule) {
+    private bootStrapDate: ApplicationSharedResourcesModule) {
     // this.carsserviceStatic = new CarsService();//creating using new instead of DI.
     console.log('constructor in the child component');
     console.log(this.parentToChild); // undefined
@@ -58,10 +58,10 @@ export class ChildComponent implements OnInit, OnChanges {
 
   btnClick(): void {
     console.log(this.parentToChild); // data of the property
-
     // here on click of the button the event emitter is invoked.
     this.childToParent.emit(this.carstatic);
   }
+
 
   CarsWebApi(): void {
     this.message = 'Data is Loading..';

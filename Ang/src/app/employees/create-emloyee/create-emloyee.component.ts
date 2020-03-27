@@ -34,8 +34,8 @@ export class CreateEmloyeeComponent implements OnInit {
   }
 
   // (empDetails: NgForm)
-    saveEmployee(empDetails: Employee): void {
-    console.log(empDetails);
+    saveEmployee(): void {
+    console.log(this.employee);
   }
   // testclick(empDetails: NgForm): void {
   //   console.log(empDetails);

@@ -13,3 +13,4 @@ exporting the ngModel to the local template reference variable #fullNameControl=
 touched,untouched,pristine,dirty,valid,invalid
 
 The only difference between two is that value is always string, where in ngValue you can pass object
+ngModeGroup password and confirmpassword single group.
