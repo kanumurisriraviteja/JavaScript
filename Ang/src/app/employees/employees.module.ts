@@ -4,18 +4,20 @@ import { FormsModule } from '@angular/forms';
 import { ApplicationSharedResourcesModule} from '../application-shared-resources.module';
 import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {CanDeactiveCreateEmployeeGuard} from './can-deactive-create-employee.guard';
 
 import { CreateEmloyeeComponent } from './create-emloyee/create-emloyee.component';
+import { MoreEmployeeDetailsComponent } from './more-employee-details/more-employee-details.component';
 
 @NgModule({
-  declarations: [CreateEmloyeeComponent],
+  declarations: [CreateEmloyeeComponent, MoreEmployeeDetailsComponent],
   imports: [
     CommonModule,
     FormsModule,
     BsDatepickerModule.forRoot(),
     BrowserAnimationsModule,
     ApplicationSharedResourcesModule
-  ]
+  ],
+  providers : [CanDeactiveCreateEmployeeGuard]
 })
 export class EmployeesModule { }

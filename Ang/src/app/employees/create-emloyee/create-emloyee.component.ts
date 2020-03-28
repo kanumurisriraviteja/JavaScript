@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ApplicationSharedResourcesModule } from '../../application-shared-resources.module';
 import { Employee } from '../models/employee.model';
+import { Route } from '@angular/compiler/src/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-emloyee',
@@ -10,8 +12,10 @@ import { Employee } from '../models/employee.model';
 })
 export class CreateEmloyeeComponent implements OnInit {
 
+  @ViewChild('employeeForm') public createEmployeeForm: NgForm;
+
   bsDatePickerConfig: any;
-  constructor(private bootStrapDate: ApplicationSharedResourcesModule) {
+  constructor(private bootStrapDate: ApplicationSharedResourcesModule, private navigateroute: Router) {
     this.bsDatePickerConfig = bootStrapDate.bsGenericDatePickerConfig;
   }
 
@@ -23,7 +27,8 @@ export class CreateEmloyeeComponent implements OnInit {
     dotnetcore: false,
     python: false,
     college: 'select',
-    dob: null
+    dob: null,
+    address: ''
   };
 
   // instead of creating these many fields we can import the class directly.
@@ -34,8 +39,8 @@ export class CreateEmloyeeComponent implements OnInit {
   }
 
   // (empDetails: NgForm)
-    saveEmployee(): void {
-    console.log(this.employee);
+  saveEmployee(): void {
+    this.navigateroute.navigate(['/more']);
   }
   // testclick(empDetails: NgForm): void {
   //   console.log(empDetails);

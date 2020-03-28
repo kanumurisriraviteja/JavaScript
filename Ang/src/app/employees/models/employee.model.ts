@@ -1,5 +1,4 @@
 export class Employee {
-    // id?: number;
     name: string;
     email: string;
     gender: string;
@@ -8,4 +7,5 @@ export class Employee {
     python: boolean;
     college: string;
     dob: Date;
+    address : string;
 }

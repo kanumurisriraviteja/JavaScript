@@ -41,26 +41,12 @@
                         <label>Gender</label>
                         <div class="form-control">
                             <label class="radio-inline"><input type="radio" name="gender" value="male"
-                                    [(ngModel)]="employee.gender">Male</label>
+                                    [(ngModel)]="employee.gender">Male</label>&nbsp;&nbsp;
                             <label class="radio-inline"><input type="radio" name="gender" value="female"
                                     [(ngModel)]="employee.gender">Female</label>
                         </div>
                     </div>
-
-                    <div class="form-group">
-                        <div class="form-control">
-                            <label class="checkbox-inline control-label">
-                                <input type="checkbox" name="angular" [(ngModel)]="employee.angular"> Angular
-                            </label>
-                            <label class="checkbox-inline control-label">
-                                <input type="checkbox" name="dotnetcore" [(ngModel)]="employee.dotnetcore"> .net core
-                            </label>
-                            <label class="checkbox-inline control-label">
-                                <input type="checkbox" name="python" [(ngModel)]="employee.python" disabled> Python
-                            </label>
-                        </div>
-                    </div>
-
+                    
                     <div class="form-group">
                         <label for="College" class="control-label">
                             College
@@ -77,6 +63,22 @@
                         </span>
                     </div>
 
+                    <div class="form-group">
+                        <label>Tech Stack</label>
+                        <div class="form-control">
+                            <label class="checkbox-inline control-label">&nbsp;&nbsp;
+                                <input type="checkbox" name="angular" [(ngModel)]="employee.angular"> Angular
+                            </label>
+                            <label class="checkbox-inline control-label">&nbsp;&nbsp;
+                                <input type="checkbox" name="dotnetcore" [(ngModel)]="employee.dotnetcore"> .net core
+                            </label>
+                            <label class="checkbox-inline control-label">&nbsp;&nbsp;
+                                <input type="checkbox" name="python" [(ngModel)]="employee.python" disabled> Python/AI  
+                            </label>
+                        </div>
+                    </div>
+
+                    <br />
                     <!-- 
                         control.updateValueAndValidity(); password, confirmpassword trigger.
                         mgModeGroup
@@ -87,13 +89,19 @@
                     </div> -->
                 </div>
                 <div class="panel-footer">
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="submit" class="btn btn-link">More>>>>>>>>>>>>>></button>
                 </div>
             </div>
         </div>
+        <div class="col-sm-8">
+            <div>
+                <h3>Form Details entered by the employee</h3>
+            </div>
+            <br/>
+            <div>
+                Form value is : {{employeeForm.value | json }} <br />
+                Employee value is : {{employee | json }}
+            </div>
+        </div>
     </div>
-
 </form>
-
-Form value is : {{employeeForm.value | json }} <br />
-Employee value is : {{employee | json }}
