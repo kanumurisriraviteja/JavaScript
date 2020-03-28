@@ -11,41 +11,35 @@ npm install bootstrap jquery
 npm install ngx-bootstrap --save
 
 ng serve --watch=false --live-reload=false --port=4201 --open 
-ng build --dev ;(produces source maps,Just In Time(JIT))   ng build --prod (ahead of time (aot))// this is bin folder.
+ng build --dev ;(produces source maps,Just In Time(JIT))  
+ng build --prod (ahead of time (aot))// this is bin folder.
 ng test 
 ng e2e // runs the end to end tests.
 ng lint
 ng lint --fix
 
- ng update //show the changes
- ng update --all // updates all the packages
+ng update //show the changes
+ng update --all // updates all the packages
 
-inetmgr
+inetmgr // in the command prompt open the IIS
 prod build : ng build --prod
  
-http://localhost:4200/
-ctrl+C; will close the terminal
-ng generate component component-name >>>>> to generate a new component.
- You can also use ng generate directive|pipe|service|class|guard|interface|enum|module.
-
- important files: angular.json,packages.json,tsconfig.json
- Root component : AppComponent,AppModule,main.ts,index.html,
-
- Karma Unit test,Protractor EndtoEnd  spec.ts is for unit testing.
-
 https://angular.io/cli/generate
-// if we have mutltiple modules we will get error
- ng g c <componentName> -d -it -is --spec=false -- style=css
- ng g d <directivename> -m =app.module 
- ng g p <pipename>
+ng generate component component-name >>>>> to generate a new component.
+You can also use ng generate directive|pipe|service|class|guard|interface|enum|module.
 
- ng g m <moduleName>   -m = app.module
+// if we have mutltiple modules we will get error
+ng g c <componentName> -d -it -is --skipTests=true -- style=css
+ng g d <directivename> -m =app.module 
+ng g p <pipename>
+
+ng g m <moduleName>   -m = app.module
  
 //multipe modules also no error 
- ng g g <guardname>
- ng g s <serviceName>  -m = app.module // not registered in the module
- -------------------------------------------------------------------------------
- ng g cl <classname>
- ng g i <interfacename>
- ng g e <enumname>
+ng g g <guardname>
+ng g s <serviceName>  -m = app.module // not registered in the module
+-------------------------------------------------------------------------------
+ng g cl <classname>
+ng g i <interfacename>
+ng g e <enumname>
  

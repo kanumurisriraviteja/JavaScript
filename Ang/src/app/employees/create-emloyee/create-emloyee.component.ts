@@ -2,8 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ApplicationSharedResourcesModule } from '../../application-shared-resources.module';
 import { Employee } from '../models/employee.model';
-import { Route } from '@angular/compiler/src/core';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
+import { DataTransportService } from '.././../Services/data-transport.service';
 
 @Component({
   selector: 'app-create-emloyee',
@@ -15,7 +15,9 @@ export class CreateEmloyeeComponent implements OnInit {
   @ViewChild('employeeForm') public createEmployeeForm: NgForm;
 
   bsDatePickerConfig: any;
-  constructor(private bootStrapDate: ApplicationSharedResourcesModule, private navigateroute: Router) {
+  constructor(private bootStrapDate: ApplicationSharedResourcesModule, private navigateroute: Router,
+    private dataTransport: DataTransportService) {
+
     this.bsDatePickerConfig = bootStrapDate.bsGenericDatePickerConfig;
   }
 
@@ -40,8 +42,26 @@ export class CreateEmloyeeComponent implements OnInit {
 
   // (empDetails: NgForm)
   saveEmployee(): void {
-    this.navigateroute.navigate(['/more']);
+    const navigationExtras: NavigationExtras = {
+      queryParams: {
+        name: this.employee.name,
+        email: this.employee.email,
+        gender: this.employee.gender,
+        angular: this.employee.angular,
+        dotnetcore: this.employee.dotnetcore,
+        python: this.employee.python,
+        college: this.employee.college,
+        dob: this.employee.dob,
+        address: this.employee.address
+      },
+      queryParamsHandling: 'preserve'
+    };
+    const newEmployee = Object.assign({}, this.employee);
+    this.dataTransport.storage = newEmployee;
+    this.createEmployeeForm.reset();  // Reset all the form details.
+    this.navigateroute.navigate(['/more'], navigationExtras);
   }
+
   // testclick(empDetails: NgForm): void {
   //   console.log(empDetails);
   // }

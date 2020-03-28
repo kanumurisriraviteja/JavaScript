@@ -1,5 +1,5 @@
 <form #employeeForm="ngForm" (ngSubmit)="saveEmployee()">
-    <!-- saveEmployee(employeeForm)->saveEmployee(employee) ngNativeValidate-->
+    <!-- saveEmployee(employeeForm)->saveEmployee(employee) ngNativeValidate  (ngSubmit)="saveEmployee(); employeeForm.reset()"-->
     <div class="row">
         <div class="col-sm-4">
             <div class="panel panel-primary">
@@ -46,7 +46,7 @@
                                     [(ngModel)]="employee.gender">Female</label>
                         </div>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="College" class="control-label">
                             College
@@ -73,7 +73,7 @@
                                 <input type="checkbox" name="dotnetcore" [(ngModel)]="employee.dotnetcore"> .net core
                             </label>
                             <label class="checkbox-inline control-label">&nbsp;&nbsp;
-                                <input type="checkbox" name="python" [(ngModel)]="employee.python" disabled> Python/AI  
+                                <input type="checkbox" name="python" [(ngModel)]="employee.python" disabled> Python/AI
                             </label>
                         </div>
                     </div>
@@ -97,7 +97,7 @@
             <div>
                 <h3>Form Details entered by the employee</h3>
             </div>
-            <br/>
+            <br />
             <div>
                 Form value is : {{employeeForm.value | json }} <br />
                 Employee value is : {{employee | json }}

@@ -7,5 +7,5 @@ export class Employee {
     python: boolean;
     college: string;
     dob: Date;
-    address : string;
+    address: string;
 }

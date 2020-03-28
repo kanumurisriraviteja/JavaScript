@@ -1,5 +1,5 @@
 <form #fullemployeeForm="ngForm" (ngSubmit)="saveEmployee()">
-    
+
     <div class="row">
         <div class="col-sm-4">
             <div class="panel panel-primary">
@@ -7,16 +7,16 @@
                     <h3 class="panel-title">More Details</h3>
                 </div>
                 <div class="panel-body">
-                    <div class="form-group" [class.has-error]="addressControl.invalid && addressControl.touched"
-                        [class.has-success]="addressControl.valid">
+                    <div class="form-group" [class.has-error]="address.invalid && address.touched"
+                        [class.has-success]="address.valid">
                         <label for="address" class="control-label">Address</label>
-                        <input id="address" required type="text" name="address" [(ngModel)]="address"
-                            class="form-control" #addressControl="ngModel">
-                        <span class="help-block" *ngIf="addressControl.invalid && addressControl.touched">
+                        <input id="address" required type="text" name="address"
+                            [(ngModel)]="fullEmployeeDetailsService.address" class="form-control" #address="ngModel">
+                        <span class="help-block" *ngIf="address.invalid && address.touched">
                             address is required
                         </span>
                     </div>
-                
+
                 </div>
                 <div class="panel-footer">
                     <button type="submit" class="btn btn-primary">Save</button>
@@ -27,10 +27,10 @@
             <div>
                 <h3>All Form Details entered by the employee</h3>
             </div>
-            <br/>
+            <br />
             <div>
-                Form value is : {{fullemployeeForm.value | json }} <br />
-                Employee value is : {{employee | json }}
+                Full Employee value is : {{fullEmployeeDetailsService | json }} <br /><br />
+                {{messagestatus}}
             </div>
         </div>
     </div>

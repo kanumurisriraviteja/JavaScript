@@ -1,43 +1,58 @@
-// passes data from class to the html.
+// one way data binding > passes data from class to the html or from html to the class 
+// two way data binding > Both ways
+
+{{}}         > class to the html 
+(), #        > html to the class, here (click)='' is the event binding and # is the template reference variable type.
+[(ngModel)]  > two way data binding. we need to import {FormsModule} from '@angular/Forms'
 
 Interpolation>  from class to template(html) {{}}
 property binding <img [src]=''/> or bind-disabled=''
 attribute binding [attr-colspan]='' or attr.colspan="{{}}"
 
+concatinate strings use Interpolation over property binding. property binding like button disabled use property binding.
+angular bindings work with properties and events but not with attributes(key and value pairs)
+
 using property binding we can achieve only one property.
 [ngClass]> this add multiple class bindings. css properties
 [ngStyle]> can write a method to apply multiple styles. like : fontWeight
+value,ngValue >  Differenceis : value is always string, ngValue you can pass object value="null" ngValue =null Dropdown
+ngModeGroup   > password and confirmpassword single group.
+
+@Input      	> 	passing data from parent to the child. @Input() parentToChild: number;
+@Output     	> 	passing data from child to the parent. load : @Output childToParent = new EventEmitter<any>(); child> btnclick() : this.childToParent.emit(this.carstatic);
+					parent> GetOutputFromChild(input: any): void {
+@ViewChild		>	getting the dom reference in the parent ElementRef only the first child
+@ViewChildren	>
+#employeeForm	> 	@ViewChild('employeeForm') public createEmployeeForm: NgForm;
+Services        >   create a common service and inject in the specific required module.
+<app-child [parentToChild]="firstname" (childToParent)="GetOutputFromChild($event)" #childToParentTr>
 
 
-// Here passes data from html to the class
-Event binding: 
-(click)=''
-
-//Two way data binding
-[(ngModel)]
-
-concatinate strings use Interpolation over property binding. property binding like button disabled use property binding.
-angular bindings work with properties and events but not with attributes(key and value pairs).
-
-@Input @output 
+DI services: 
+The data can be shared between the components as a service, by using the DI of the angular the Singleton instance of the service class is created, 
+and the class level variables/Methods can be shared. if we create using the new keyword then multiple instances would be created.
 
 constructor,ngOnChanges,ngOnInit,ngDestroy;
-Life Cycle hooks : 
-ngOnChanges,Executes every time when the @Input changes.receives a SimpleChanges which contains previous and current change
-ngOnInit,
---ngDOCheck,ngAfterContentInit,ngAfterContentChecked,ngAfterViewInit,ngAfterViewChecked--
-ngDestroy
 
+Life Cycle hooks :
+ 
+ngOnChanges				> Executes every time when the @Input changes.receives a SimpleChanges which contains previous and current change
+ngOnInit
+ngDOCheck
+ngAfterContentInit
+ngAfterContentChecked
+ngAfterViewInit
+ngAfterViewChecked
+ngDestroy				> to unsubscribe a service.
 
-Bundling : as there will be on the restrictions on the no of js file loaded, small js are combied to form a lager one.
-Minfication : short hands, spaces.
-TreeShaking : removing code which are not using in the application.
+ngOnchanges can be achieved by using get {} set {} for a property. get{}set{} is executed for every change.
 
-//Difference between observable and promise:
-1.observable returns multiple value while observable returns multiple value 
-2.observable issues the request only if we have the subscribe(Lazy),but promise issue the request even if we dont have then()
-3.observable can be cancelled, promises can'template
-4.observable has many functions like map,foreach,filter,reduce,retry,retryWhen.
+Bundling	> as there will be on the restrictions on the no of js file loaded, small js are combied to form a lager one.
+Minfication > short hands, spaces.
+TreeShaking > removing code which are not using in the application.
 
-RxJs:
-Typecasting observable,throwError(),.pipe(catchError()),retry
+Difference between observable and promise:
+observable returns multiple value while observable returns multiple value 
+observable issues the request only if we have the subscribe(Lazy),but promise issue the request even if we dont have then()
+observable can be cancelled, promises can'template
+observable has many functions like map,foreach,filter,reduce,retry,retryWhen.

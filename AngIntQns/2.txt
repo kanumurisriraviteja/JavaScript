@@ -2,15 +2,17 @@ Forms in angular :
 1. Template Driven (simple)
 2. Model/Reactive Driven (complex)
 
-In the json created the name field value will be the property and the [()] will the value
-[(ngModel)] ="fullName" in html .ts fullName : string must be there in both
+In the json created the name field value will be the property and the [()] will the value > key :value 
+[(ngModel)] ="fullName" in html, .ts fullName :string ='' > must be there in both else undefined error.
 
 If we dont have the type="button" it will behave as submit, and submit methods are called.
-By default angular will append , 'novalidate' to the <form>. hence all the validations like required,max would not work
-if we place 'ngNativeValidate' would work as expected.
+By default angular will append , 'novalidate' to the <form>. hence all the validations like required,max would not work if we place 'ngNativeValidate' would work as expected.
 exporting the ngModel to the local template reference variable #fullNameControl="ngModel" and the complete form we use #myForm="ngForm"
-
 touched,untouched,pristine,dirty,valid,invalid
 
-The only difference between two is that value is always string, where in ngValue you can pass object
-ngModeGroup password and confirmpassword single group.
+Route params : /people/:id   optional> /people/{id:emploee.id}
+this.selectedEmployeeId = +this._route.snapshot.paramMap.get('id'); getting by id.
+to get from the route param we use 'paramMap' and to get the details from the query we use 'queryParamMap' 
+snapshot the route parameter value does not change and we want to read the initial route parameter value.
+observable is when the route parameter changes and we want to react to the execute some code in response to the change.
+when we subscribe we need to explicitly need to unsubscribe, ActivatedRoute it will automatically unsubscribe.
