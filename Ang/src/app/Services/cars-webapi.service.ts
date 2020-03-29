@@ -36,4 +36,8 @@ export class CarsWebapiService {
     GetCarsWebApiPromise(): Promise<any> {
       return this.genericHttp.HttpGetServicePromise('Values/GetCar');
     }
+
+    GetExpensiveCarsJsonServer(): Observable<Icar[]> {
+      return this.genericHttp.HttpGetServiceJsonServer('cars');
+  }
 }

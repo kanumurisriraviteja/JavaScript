@@ -16,7 +16,7 @@ export class CreateEmloyeeComponent implements OnInit {
 
   bsDatePickerConfig: any;
   constructor(private bootStrapDate: ApplicationSharedResourcesModule, private navigateroute: Router,
-    private dataTransport: DataTransportService) {
+              private dataTransport: DataTransportService) {
 
     this.bsDatePickerConfig = bootStrapDate.bsGenericDatePickerConfig;
   }
@@ -31,7 +31,7 @@ export class CreateEmloyeeComponent implements OnInit {
     college: 'select',
     dob: null,
     address: ''
-  };
+  }; // Here we can use new Employee() as well.
 
   // instead of creating these many fields we can import the class directly.
   // fullName: string;

@@ -5,10 +5,14 @@ import { ParentComponent } from './home/parent/parent.component';
 import { CreateEmloyeeComponent } from './employees/create-emloyee/create-emloyee.component';
 import { MoreEmployeeDetailsComponent } from './employees/more-employee-details/more-employee-details.component';
 import { CanDeactiveCreateEmployeeGuard } from './employees/can-deactive-create-employee.guard';
+import { LoadingResolverService } from './Services/loading-resolver.service';
 
 const routes: Routes =
   [
-    { path: 'home', component: ParentComponent },
+    {
+      path: 'home', component: ParentComponent,
+      resolve: { morecarsdata: LoadingResolverService }
+    },
     {
       path: 'create', component: CreateEmloyeeComponent
     }, // , canDeactivate :[CanDeactiveCreateEmployeeGuard]
@@ -20,7 +24,7 @@ const routes: Routes =
   ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)], // (routes,{ useHash: true})
+  imports: [RouterModule.forRoot(routes)], // (routes,{ useHash: true ,enableTracing: true})
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

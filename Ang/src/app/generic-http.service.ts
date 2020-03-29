@@ -11,6 +11,8 @@ import { catchError } from 'rxjs/operators';
 export class GenericHttpService {
 
   baseurl = 'https://localhost:44330/api/';
+  baseurlJson = 'http://localhost:3000/';
+
   baseheader: HttpHeaders = new HttpHeaders({
     'Content-Type': 'application/json',
     responseType: 'json'
@@ -53,4 +55,9 @@ export class GenericHttpService {
       throwError('error in returning from the service,please contact admin')))
       .toPromise();
   }
+
+  public HttpGetServiceJsonServer(url: string): Observable<any> {
+    return this.http.get<any>(`${this.baseurlJson}${url}`).pipe(catchError(this.errorHandler));
+  }
+
 }

@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import { VowelPipe } from './Custom/vowel.pipe';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { SelectRequiredValidatorDirective } from './Custom/select-required-validator.directive';
+import { CarsService } from './Services/cars.service';
 
 @NgModule({
   declarations: [VowelPipe, SelectRequiredValidatorDirective],
   imports: [
     CommonModule
   ],
-  exports: [VowelPipe, SelectRequiredValidatorDirective]
+  exports: [VowelPipe, SelectRequiredValidatorDirective],
+  providers : [CarsService]
 })
 export class ApplicationSharedResourcesModule {
 

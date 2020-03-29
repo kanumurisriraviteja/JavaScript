@@ -2,9 +2,10 @@ import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges, OnChange
 import { Icar } from './ICar';
 import { CarsService } from '../../Services/cars.service';
 import { CarsWebapiService } from '../../Services/cars-webapi.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { retry, retryWhen, scan, delay } from 'rxjs/operators';
 import { ApplicationSharedResourcesModule } from '../../application-shared-resources.module';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-child',
@@ -18,11 +19,12 @@ export class ChildComponent implements OnInit, OnChanges {
 
   // private carsserviceStatic : CarsService;
   constructor(private cars: CarsService, private carsWebapi: CarsWebapiService, private navigateroute: Router,
-              private bootStrapDate: ApplicationSharedResourcesModule) {
+              private bootStrapDate: ApplicationSharedResourcesModule, private activate: ActivatedRoute) {
     // this.carsserviceStatic = new CarsService();//creating using new instead of DI.
     console.log('constructor in the child component');
     console.log(this.parentToChild); // undefined
     this.bsDatePickerConfig = bootStrapDate.bsGenericDatePickerConfig;
+    this.moreCarsStatic = this.activate.snapshot.data.morecarsdata;
   }
 
   @Input()
@@ -37,11 +39,26 @@ export class ChildComponent implements OnInit, OnChanges {
   messageStatus: boolean;
   message: string;
   domviewchild = '';
+  moreCarsStatic: Icar[] = [];
 
   ngOnInit(): void {
-    //  this.carstatic = this.carsserviceStatic.GetCars();
-    this.carstatic = this.cars.GetCars();
     console.log('OnInit in the child component');
+
+    //  this.carstatic = this.carsserviceStatic.GetCars();
+    of(this.cars.GetCars()).subscribe((x) => {
+      this.carstatic = x;
+      // prefetching the data.
+      this.moreCarsStatic.forEach((value) => {
+        this.carstatic.push(value);
+      });
+      // if we implement using this approach then the controls are loaded and then the data is binded.
+      // this.cars.GetMoreCars().subscribe((x) => {
+      //   x.forEach((value) => {
+      //     this.carstatic.push(value);
+      //   });
+      // });
+    });
+
   }
 
 
@@ -74,7 +91,14 @@ export class ChildComponent implements OnInit, OnChanges {
         }
       }, 0)).pipe(delay(1000));
     }
-    )).subscribe(data => this.carsWebApi = data,
+    )).subscribe((data) => {
+      this.carsWebApi = data;
+      this.carsWebapi.GetExpensiveCarsJsonServer().subscribe((x) => {
+        x.forEach((value) => {
+          this.carsWebApi.push(value);
+        });
+      });
+    },
       (error) => {
         this.messageStatus = false;
         this.message = error;
@@ -156,6 +180,25 @@ export class ChildComponent implements OnInit, OnChanges {
       }
     );
 
+  }
+
+  ExpensiveCarsJsonServer(): void {
+    this.message = 'Data is Loading..';
+    this.carsWebapi.GetExpensiveCarsJsonServer().subscribe((x) => {
+      x.forEach((value) => {
+        this.carsWebApi.push(value);
+      });
+    },
+    (error) => {
+      this.messageStatus = false;
+      this.message = error;
+    },
+    () => {
+      this.messageStatus = true;
+      if (this.messageStatus) {
+        this.message = 'loaded successfully';
+      }
+    });
   }
 
   GoHome(): void {

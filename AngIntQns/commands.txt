@@ -43,3 +43,7 @@ ng g cl <classname>
 ng g i <interfacename>
 ng g e <enumname>
  
+ 
+JSON server:
+npm install -g json-server
+start : json-server --watch db.json

@@ -26,5 +26,15 @@
 </nav>
 <br>
 <div class="container-fluid">
+  <div *ngIf='loadSpinner' class="lds-roller">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
   <router-outlet></router-outlet>
 </div>

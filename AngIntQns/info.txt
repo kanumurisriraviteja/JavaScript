@@ -91,7 +91,7 @@ export class CarService
 >Routing :
 import { Router, ActivatedRoute,Routes, RouterModule } from '@angular/router';
 const routes: Routes =[{
-    path: 'create/:id {fname : ''}', component: CreateEmloyeeComponent,pathMatch: 'full', canDeactivate :[CanDeactiveCreateEmployeeGuard],data:''
+    path: 'create/:id {fname : ''}', component: CreateEmloyeeComponent,pathMatch: 'full', canDeactivate/canActivate :[CanDeactiveCreateEmployeeGuard],data:''
   }]
 @NgModule({
   imports: [RouterModule.forRoot(routes)], // (routes,{ useHash: true})
@@ -102,7 +102,7 @@ constructor(private activate: ActivatedRoute, private navigateroute: Router) { }
 ngOnInit(): void {
 
 //to get from the route param we use 'paramMap' and to get the details from the query we use 'queryParamMap' > subscribe
-this._route.snapshot.paramMap.get('id')
+this.activate.snapshot.paramMap.get('id')
 
 //reading from the url querey.
 this.activate.queryParams.subscribe(params => {

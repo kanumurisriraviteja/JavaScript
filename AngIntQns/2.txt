@@ -10,9 +10,26 @@ By default angular will append , 'novalidate' to the <form>. hence all the valid
 exporting the ngModel to the local template reference variable #fullNameControl="ngModel" and the complete form we use #myForm="ngForm"
 touched,untouched,pristine,dirty,valid,invalid
 
-Route params : /people/:id   optional> /people/{id:emploee.id}
+Route params >
+/people/:id   optional> /people/{id:emploee.id}
 this.selectedEmployeeId = +this._route.snapshot.paramMap.get('id'); getting by id.
 to get from the route param we use 'paramMap' and to get the details from the query we use 'queryParamMap' 
 snapshot the route parameter value does not change and we want to read the initial route parameter value.
 observable is when the route parameter changes and we want to react to the execute some code in response to the change.
 when we subscribe we need to explicitly need to unsubscribe, ActivatedRoute it will automatically unsubscribe.
+The code present after the subscribe will be executed asynchronously.
+Resolver service prefetching the data even before the page is being dispalyed.this would be in the app.routing.module.ts
+
+Routing Navigation events>
+NavigationStart, NavigationEnd, NavigationCancel, NavigationError
+
+Rout Gaurds>
+CanDeactivate,CanActive.
+
+*ngIf	 > add and removes the elements from the dom 
+[hidden] > sets the dispaly : none property, and the elements are stil in the dom. better for toggling.
+
+Content Projection > <ng-content></ng-content>
+<ng-container></ng-container>
+<ng-template></ng-template>
+https://codeburst.io/angular-interview-question-what-are-ng-container-ng-content-and-ng-template-9fafbbc255d5
