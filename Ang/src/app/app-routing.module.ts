@@ -12,6 +12,9 @@ const routes: Routes =
       resolve: { morecarsdata: LoadingResolverService }
     },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
+    // {
+    //   path : 'employee',loadChildren :'./employees/employees.module#EmployeesModule'
+    // },
     { path: '**', component: PageNotFoundComponent }
   ];
 
