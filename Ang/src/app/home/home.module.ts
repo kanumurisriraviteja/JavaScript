@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { ChildComponent } from './child/child.component';
 import { ParentComponent } from './parent/parent.component';
-import { ApplicationSharedResourcesModule} from '../application-shared-resources.module';
+import { ApplicationSharedResourcesModule } from '../application-shared-resources.module';
 import { CarsService } from '../Services/cars.service';
 
 
@@ -10,6 +10,6 @@ import { CarsService } from '../Services/cars.service';
   imports: [
     ApplicationSharedResourcesModule
   ],
-  providers :[CarsService]
+  providers: [CarsService]
 })
 export class HomeModule { }
