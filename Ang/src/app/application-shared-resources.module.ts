@@ -3,15 +3,19 @@ import { CommonModule } from '@angular/common';
 import { VowelPipe } from './Custom/vowel.pipe';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { SelectRequiredValidatorDirective } from './Custom/select-required-validator.directive';
-import { CarsService } from './Services/cars.service';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [VowelPipe, SelectRequiredValidatorDirective],
   imports: [
     CommonModule
   ],
-  exports: [VowelPipe, SelectRequiredValidatorDirective],
-  providers : [CarsService]
+  // must export all the shared ones for other modules to resuse.
+  exports: [VowelPipe, SelectRequiredValidatorDirective,
+    CommonModule, FormsModule
+  ],
+  providers: []
 })
 export class ApplicationSharedResourcesModule {
 

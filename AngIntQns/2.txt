@@ -49,3 +49,15 @@ HttpClientModuel 	> avail httto services
 Routing Module:
 forRoot 	> must be imported only once in the app.module.ts
 forChild	> must be in the childs of all the modules.
+
+Shared module:
+may export CommonModule,FormsModule
+should not have providers,should not import or reexport modules that have providers.
+imported by all the feature modules.
+
+for the lazy loading of a module, all the routes in the module must be with the same prefix.
+
+Eager Loading 	> all the modules are loaded in the first request,hence the first request would take more time
+Lazy Loading	> on the demand the modules are loaded
+pre Loading		> all the modules are loaded in the background after the first request 
+custom Loading	> here we can write the custom code to load on the modules we want.	

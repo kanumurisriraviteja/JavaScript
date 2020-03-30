@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { HomeModule } from './home/home.module';
 import { EmployeesModule } from './employees/employees.module';
 import { ApplicationSharedResourcesModule } from './application-shared-resources.module';
@@ -31,7 +31,7 @@ import { PageNotFoundComponent } from './Others/pagenotfound.component';
     ApplicationSharedResourcesModule
   ],
   exports: [],
-  providers: [GenericComponent, DataTransportService],
+  providers: [GenericComponent, DataTransportService, BsDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

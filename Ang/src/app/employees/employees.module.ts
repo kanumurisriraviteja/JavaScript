@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { EmployeeRoutingModule } from './employee-routing.module';
 import { ApplicationSharedResourcesModule} from '../application-shared-resources.module';
 import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
@@ -14,8 +12,6 @@ import { StudentComponent } from './student/student.component';
 @NgModule({
   declarations: [CreateEmloyeeComponent, MoreEmployeeDetailsComponent, StudentComponent],
   imports: [
-    CommonModule,
-    FormsModule,
     EmployeeRoutingModule,
     BsDatepickerModule.forRoot(),
     BrowserAnimationsModule,
