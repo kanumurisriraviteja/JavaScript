@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './home/home.module';
 // import { EmployeesModule } from './employees/employees.module';
@@ -14,6 +14,7 @@ import { DataTransportService } from './Services/data-transport.service'; // thi
 
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './Others/pagenotfound.component';
+import { HttpInceptorProviders } from './intercept';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { PageNotFoundComponent } from './Others/pagenotfound.component';
     ApplicationSharedResourcesModule
   ],
   exports: [],
-  providers: [GenericComponent, DataTransportService],
+  providers: [GenericComponent, DataTransportService, HttpInceptorProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
