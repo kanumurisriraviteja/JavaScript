@@ -59,7 +59,7 @@ export class CreateEmloyeeComponent implements OnInit {
     const newEmployee = Object.assign({}, this.employee);
     this.dataTransport.storage = newEmployee;
     this.createEmployeeForm.reset();  // Reset all the form details.
-    this.navigateroute.navigate(['/more'], navigationExtras);
+    this.navigateroute.navigate(['/employee/more'], navigationExtras);
   }
 
   // testclick(empDetails: NgForm): void {

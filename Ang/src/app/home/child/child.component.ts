@@ -202,6 +202,6 @@ export class ChildComponent implements OnInit, OnChanges {
   }
 
   GoHome(): void {
-    this.navigateroute.navigate(['/create']);
+    this.navigateroute.navigate(['/employee/create']);
   }
 }

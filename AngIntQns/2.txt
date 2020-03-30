@@ -40,7 +40,7 @@ https://codeburst.io/angular-interview-question-what-are-ng-container-ng-content
 Modules:
 Root,Routing,Common.Shared,Core.
 NgModule			> must import this to be a module
-BrowserModule 		> import this only once.exports the CommonModule
+BrowserModule 		> import this only once.exports the CommonModule. BrowserAnimationsModule both must be in the same module.
 CommonModule  		> structural directives like *ngFor,*ngIf
 FormsModule   		> [(ngModel)] template driven
 ReactiveFormsModule >  forms driven
