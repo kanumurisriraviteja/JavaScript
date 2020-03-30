@@ -2,6 +2,8 @@ Forms in angular :
 1. Template Driven (simple)
 2. Model/Reactive Driven (complex)
 
+Template Driven:
+----------------------------------------------------------------------------------------------------------------------------------
 In the json created the name field value will be the property and the [()] will the value > key :value 
 [(ngModel)] ="fullName" in html, .ts fullName :string ='' > must be there in both else undefined error.
 
@@ -29,7 +31,21 @@ CanDeactivate,CanActive.
 *ngIf	 > add and removes the elements from the dom 
 [hidden] > sets the dispaly : none property, and the elements are stil in the dom. better for toggling.
 
-Content Projection > <ng-content></ng-content>
-<ng-container></ng-container>
-<ng-template></ng-template>
+<ng-content></ng-content> 		> Content Projection 
+<ng-container></ng-container>	> if we have multiple structural directives like *ngIf *ngFor. Not rendered in the dom.
+<ng-template></ng-template>		>
 https://codeburst.io/angular-interview-question-what-are-ng-container-ng-content-and-ng-template-9fafbbc255d5
+
+
+Modules:
+Root,Routing,Common.Shared,Core.
+NgModule			> must import this to be a module
+BrowserModule 		> import this only once.exports the CommonModule
+CommonModule  		> structural directives like *ngFor,*ngIf
+FormsModule   		> [(ngModel)] template driven
+ReactiveFormsModule >  forms driven
+HttpClientModuel 	> avail httto services
+
+Routing Module:
+forRoot 	> must be imported only once in the app.module.ts
+forChild	> must be in the childs of all the modules.

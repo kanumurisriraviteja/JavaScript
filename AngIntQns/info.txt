@@ -46,6 +46,7 @@ export class FirstComponent{
 // All the components,directvies,pipes : declarations[]
 // All the modules in imports[]
 // All the services in providers[]
+// The components,directives,pipes which we create in a module is specific to that module only. if we want to reuse in the other modules then we need to  declare in export[] 
 // Creating shared modules allows you to organize and streamline your code.
    You can put commonly used directives, pipes, and components into one module and then import just that module wherever you need it in other parts of your app.
 // For s service/Gaurd : If we want to create a instance to all the module introduce in app.module else inject in specific module.
@@ -65,6 +66,7 @@ import { BrowserModule } from '@angular/platform-browser'; //needs to run angula
     HttpClientModule // this is for http sevice calls.
   ],
   providers: [],
+  exports :[],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,7 +6,12 @@
       <!-- here value is attribute binding which flows data from class to html 
       and input is event binding which flows the data from html to the class-->
       First Name : <input type="text" [value]='firstname' (input)='firstname=$event.target.value' /><br /><br />
-      Second Name : <input type="text" [(ngModel)]='lastname' /><br />
+      Second Name : <input type="text" [(ngModel)]='lastname' />
+      <div *ngIf="lastname==''; else loading">*
+      </div>
+      <ng-template #loading>
+        <div>..</div>
+      </ng-template>
       You Have Entered : First Name : {{firstname}} Second Name :{{lastname}} <br />{{fullname}}
       <br />
       <table>
@@ -36,6 +41,5 @@
       <!-- this is the contentview -->
       <h4>This is the Child Component</h4>
     </app-child>
-
   </div>
 </div>

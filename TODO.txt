@@ -1,4 +1,3 @@
 1. How to manage Angular2 “expression has changed after it was checked” exception when a component property depends on current datetime
    > Encountered for @viewchild() and the template reference variable.
-2. what is the need for exports in the module when to use it.
-3. 
+2. Authentication, authorization, unit testing,interceptors,lazy loading.
