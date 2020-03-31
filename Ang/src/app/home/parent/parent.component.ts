@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterContentInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit, ViewChild, ElementRef, AfterViewInit, AfterContentChecked, AfterViewChecked } from '@angular/core';
 import { ChildComponent } from '../child/child.component';
 
 @Component({
@@ -6,16 +6,22 @@ import { ChildComponent } from '../child/child.component';
   templateUrl: './parent.component.html',
   styleUrls: ['./parent.component.css']
 })
-export class ParentComponent implements OnInit, AfterViewInit, AfterContentInit {
+export class ParentComponent implements OnInit, AfterViewInit, AfterContentChecked, AfterViewChecked {
 
   constructor() {
     console.log('constructor in the PARENT component');
     console.log(`${this.firstname}`);
   }
+  ngAfterViewChecked(): void {
+    // console.log('///////////////////////ngAfterViewChecked');
+  }
+  ngAfterContentChecked(): void {
+    // console.log('*********************ngAfterContentChecked');
+  }
 
   @ViewChild('manipulate') parentdomelement: ElementRef;
-  // @ViewChild('domchild1') childdomelement: ElementRef;
-  //  @ViewChild(ChildComponent) childFullDom: ChildComponent;
+  // @ViewChild('domchild1', { static: false }) childdomelement: ElementRef;
+  // @ViewChild(ChildComponent, { static: false }) childFullDom: ChildComponent;
 
   srcPath = '../assets/1.jpg';
   firstname = 'teja';
@@ -26,6 +32,7 @@ export class ParentComponent implements OnInit, AfterViewInit, AfterContentInit 
 
   receivedFromChild: any;
   ngAfterContentInit(): void {
+    // console.log('------------------' + this.childFullDom);
   }
 
   ngAfterViewInit(): void {
