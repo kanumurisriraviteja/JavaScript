@@ -31,6 +31,7 @@ export class MoreEmployeeDetailsComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // let a = this.activate.snapshot.params[''];
     // this is for the params in the object.
     this.activate.queryParams.subscribe(params => {
       this.fullEmployeeDetails.name = params.name;

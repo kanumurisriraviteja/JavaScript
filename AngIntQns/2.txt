@@ -33,7 +33,7 @@ CanDeactivate,CanActive.
 
 <ng-content></ng-content> 		> Content Projection 
 <ng-container></ng-container>	> if we have multiple structural directives like *ngIf *ngFor. Not rendered in the dom.
-<ng-template></ng-template>		>
+<ng-template></ng-template>		> *ngIf else, the else part will be in the ng-template
 https://codeburst.io/angular-interview-question-what-are-ng-container-ng-content-and-ng-template-9fafbbc255d5
 
 
@@ -44,11 +44,12 @@ BrowserModule 		> import this only once.exports the CommonModule. BrowserAnimati
 CommonModule  		> structural directives like *ngFor,*ngIf
 FormsModule   		> [(ngModel)] template driven
 ReactiveFormsModule >  forms driven
-HttpClientModuel 	> avail httto services
+HttpClientModuel 	> avail htttp services
 
 Routing Module:
 forRoot 	> must be imported only once in the app.module.ts
 forChild	> must be in the childs of all the modules.
+Routes[],RouterModule,ActivatedRoute,<router-outlet></router-outlet>,routerLink,routerLinkActive
 
 Shared module:
 may export CommonModule,FormsModule

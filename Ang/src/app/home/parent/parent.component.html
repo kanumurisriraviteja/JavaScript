@@ -16,10 +16,11 @@
       <br />
       <table>
         <!-- Cant place multiple directives together-->
-        <ng-container *ngFor="let e of count;let i=index">
+        <ng-container *ngFor="let e of count;let i=index;let isEven=even;let isOdd=odd">
           <tr *ngIf='i%2==0'>
             <!-- here vowelpipe is the custom pipe and parameters are passed using :i:j -->
             <td *ngIf='BooleanCondForIF(e)'> {{e | uppercase | vowelpipe:i}}</td>
+            <td>  EvenIndex:{{isEven}}</td>
           </tr>
         </ng-container>
       </table>

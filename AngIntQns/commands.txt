@@ -10,7 +10,7 @@ npm install >> this restores all the packages.
 npm install bootstrap jquery
 npm install ngx-bootstrap --save
 
-ng serve --watch=false --live-reload=false --port=4201 --open 
+ng serve --watch=false --live-reload=false --port=4201 --open --aot true
 ng build --dev ;(produces source maps,Just In Time(JIT))  
 ng build --prod (ahead of time (aot))// this is bin folder.
 ng test 
@@ -22,6 +22,7 @@ ng update //show the changes
 ng update --all // updates all the packages
 
 inetmgr // in the command prompt open the IIS
+dev build : ng build --dev
 prod build : ng build --prod
  
 https://angular.io/cli/generate
@@ -29,6 +30,7 @@ ng generate component component-name >>>>> to generate a new component.
 You can also use ng generate directive|pipe|service|class|guard|interface|enum|module.
 
 // if we have mutltiple modules we will get error
+-d > dry run nothing will be created; -it > inline template; -is > inline style
 ng g c <componentName> -d -it -is --skipTests=true -- style=css
 ng g d <directivename> -m =app.module 
 ng g p <pipename>

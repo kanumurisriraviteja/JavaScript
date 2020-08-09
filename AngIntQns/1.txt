@@ -3,19 +3,21 @@
 
 {{}}         > class to the html 
 (), #        > html to the class, here (click)='' is the event binding and # is the template reference variable type.
-[(ngModel)]  > two way data binding. we need to import {FormsModule} from '@angular/Forms'
+[]           > property binding
+[(ngModel)]  > []property binding + () event binding >> two way data binding. we need to import {FormsModule} from '@angular/Forms'
+           
 
 Interpolation>  from class to template(html) {{}}
-property binding <img [src]=''/> or bind-disabled=''
+property binding <img [src]=''/> or bind-disabled='' [disabled]='isDisabled'
 attribute binding [attr-colspan]='' or attr.colspan="{{}}"
 
 concatinate strings use Interpolation over property binding. property binding like button disabled use property binding.
 angular bindings work with properties and events but not with attributes(key and value pairs)
 
-using property binding we can achieve only one property.
+using property binding we can achieve only one property.V1.12
 [ngClass]> this add multiple class bindings. css properties
 [ngStyle]> can write a method to apply multiple styles. like : fontWeight
-value,ngValue >  Differenceis : value is always string, ngValue you can pass object value="null" ngValue =null Dropdown
+value,ngValue >  Difference is : value is always string, ngValue you can pass object value="null" ngValue =null Dropdown
 ngModeGroup   > password and confirmpassword single group.
 
 @Input      	> 	passing data from parent to the child. @Input() parentToChild: number;
@@ -37,11 +39,11 @@ constructor,ngOnChanges,ngOnInit,ngDestroy;
 Life Cycle hooks :
  
 ngOnChanges				> Executes every time when the @Input changes.receives a SimpleChanges which contains previous and current change
-ngOnInit
+ngOnInit                > used to receive data from the database. this method is used instead of constructor
 ngDOCheck
 ngAfterContentInit
 ngAfterContentChecked
-ngAfterViewInit
+ngAfterViewInit        > @ViewChild is used here
 ngAfterViewChecked
 ngDestroy				> to unsubscribe a service.
 
@@ -52,7 +54,11 @@ Minfication > short hands, spaces.
 TreeShaking > removing code which are not using in the application.
 
 Difference between observable and promise:
-observable returns multiple value while observable returns multiple value 
+observable returns multiple value while a promise returns a single value. 
 observable issues the request only if we have the subscribe(Lazy),but promise issue the request even if we dont have then()
 observable can be cancelled, promises can'template
 observable has many functions like map,foreach,filter,reduce,retry,retryWhen.
+
+
+Difference Between the angular versions:
+service calls : In ang2 Http in @angular/Http In ang6 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';

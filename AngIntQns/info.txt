@@ -51,6 +51,7 @@ export class FirstComponent{
    You can put commonly used directives, pipes, and components into one module and then import just that module wherever you need it in other parts of your app.
 // For s service/Gaurd : If we want to create a instance to all the module introduce in app.module else inject in specific module.
 // what ever we import would be specific to one module.
+// diperb
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser'; //needs to run angular in all browsers
@@ -73,7 +74,7 @@ export class AppModule { }
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 >Services:
-// This will inject the service in the rooot no need to add in the providers again.
+// This will inject the service in the root no need to add in the providers again.
 // if we dont have providedIn: 'root' we need to register in the providers[] of the module.
 @Injectable({
     providedIn: 'root'
@@ -121,6 +122,8 @@ Add to the imports in the app.module.ts. not required to add to the providers as
 In Service>
 import { HttpClient } from '@angular/common/http';
 constructor(private _http : HttpClient) { }
+>> Any service must be registered in the providers of the module.
+
 
 <httpProtocol> which needs to be added in the webapi service side.
 <system.webServer>
@@ -158,7 +161,9 @@ Typecasting observable
 throwError()
 .pipe(catchError())
 retry
-Delay
+Delay()
+scan()
+toPromise()
 Observable.of('array')
 map,foreach,filter,reduce,retry,retryWhen.
 ----------------------------------------------------------------------------------------------------------------------------------------
