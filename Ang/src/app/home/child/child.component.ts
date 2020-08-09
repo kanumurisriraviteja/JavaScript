@@ -34,6 +34,7 @@ export class ChildComponent implements OnInit, OnChanges {
   childToParent = new EventEmitter<any>();
   // Inteface:  typo no run time errors.
   carstatic: Icar[] = [];
+  tejacars: Icar[] = [{ Type: 'lamborgini', Model: 9, Color: 'white' }];
   carsWebApi: Icar[] = [];
 
   messageStatus: boolean;

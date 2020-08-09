@@ -2,6 +2,7 @@ import {Pipe, PipeTransform} from '@angular/core';
 
 @Pipe({
     name: 'vowelpipe'
+    //, pure:false this is impure pipe
 })
 
 export class VowelPipe implements PipeTransform {

@@ -10,8 +10,8 @@ import { CanDeactiveCreateEmployeeGuard } from './can-deactive-create-employee.g
 const routes: Routes =
   [
     {
-      path: 'create', component: CreateEmloyeeComponent
-    }, // , canDeactivate :[CanDeactiveCreateEmployeeGuard]
+      path: 'create', component: CreateEmloyeeComponent, canDeactivate :[CanDeactiveCreateEmployeeGuard]
+    },
     {
       path: 'more', component: MoreEmployeeDetailsComponent  // 'more/:name' only few params
     },

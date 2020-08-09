@@ -7,12 +7,12 @@
                     <h3 class="panel-title">Create Employee</h3>
                 </div>
                 <div class="panel-body">
-                    <div class="form-group" [class.has-error]="name.invalid && name.touched"
-                        [class.has-success]="name.valid">
+                    <div class="form-group" [class.has-error]="nameControl.invalid && nameControl.touched"
+                        [class.has-success]="nameControl.valid">
                         <label for="name" class="control-label">Name</label>
-                        <input id="name" required type="text" name="name" [(ngModel)]="employee.name"
-                            class="form-control" #name="ngModel">
-                        <span class="help-block" *ngIf="name.invalid && name.touched">
+                        <input  required type="text" name="name" [(ngModel)]="employee.name"
+                            class="form-control" #nameControl="ngModel">
+                        <span class="help-block" *ngIf="nameControl.invalid && nameControl.touched">
                             Name is required
                         </span>
                     </div>
@@ -53,7 +53,8 @@
                         </label>
                         <select id="college" name="college" [(ngModel)]="employee.college" class="form-control"
                             #college="ngModel" appSelectValidator="select">
-                            <option value="select">Select College</option>
+                            <!-- here select is disabled, so as not to select -->
+                            <option disabled value="select">Select College</option>
                             <option value="iit">IIT</option>
                             <option value="nit">NIT</option>
                             <option value="none">Other</option>
